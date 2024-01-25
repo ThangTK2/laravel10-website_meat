@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\RegisterRequest;
@@ -44,7 +45,7 @@ class AccountController extends Controller
 
         if($acc = Customer::create($data)){
             Mail::to($acc->email)->send(new VerifyAccount($acc));
-            return redirect()->route('account.login')->with('success', 'Register Successfully, You can verified your email to login');
+            return redirect()->route('account.login')->with('success', 'Register successfully, You can verified your email to login');
         }
         return redirect()->back()->with('error', 'Register failed!!!');
     }
@@ -52,15 +53,22 @@ class AccountController extends Controller
     public function verify($email){
         $acc = Customer::where('email', $email)->whereNULL('email_verified_at')->firstOrFail(); //firstOrFail: khi ta nhấn verify email lần đầu thì sẽ được, lần thứ 2 trở đi sẽ không được(lỗi 404)(để tránh tình trạng spam email khi đã verify rồi)
         Customer::where('email', $email)->update(['email_verified_at' => date('Y-m-d')]);
-        return redirect()->route('account.login')->with('success', 'Verify email Successfully');
+        return redirect()->route('account.login')->with('success', 'Verify email successfully');
     }
 
     public function change_password(){
         return view('account.change_password');
     }
 
-    public function check_change_password(){
-
+    public function check_change_password(ChangePasswordRequest $request){
+        $auth = auth('cus')->user();
+        $data['password'] = bcrypt($request->password);
+        $check = $auth->update($data);
+        if ($check){
+            auth('cus')->logout();
+            return redirect()->back()->with('success', 'Change password successfully');
+        }
+        return redirect()->back()->with('error', 'Change password failed');
     }
 
     public function forgot_password(){
