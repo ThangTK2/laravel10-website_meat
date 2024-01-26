@@ -57,8 +57,7 @@
                                         Da Nang, Viet Nam
                                     </li>
                                     <li>
-                                        <i class="fas fa-envelope"></i>
-                                        <a href="mailto:info@example.com">nht1072@gmail.com</a>
+                                        <a href="mailto:info@example.com"><i class="fas fa-envelope"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -69,7 +68,7 @@
                                     <ul class="list-wrap">
                                         @if ( auth('cus')->check())
                                             <li><a href="{{ route('account.profile') }}">Hi, {{ auth('cus')->user()->name }}</a></li>
-                                            <li><a href="{{ route('account.change_password') }}">Change password</a></li>
+                                            <li><a href="{{ route('account.change_password') }}">Change Password</a></li>
                                             <li><a href="{{ route('account.logout') }}">Logout</a></li>
                                         @else
                                             <li><a href="{{ route('account.login') }}">Login</a></li>

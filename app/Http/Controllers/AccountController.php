@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ChangePasswordRequest;
+use App\Http\Requests\ForgotPasswordRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\ResetPasswordRequest;
+use App\Mail\ForgotPassword;
 use App\Mail\VerifyAccount;
 use App\Models\Customer;
+use App\Models\CustomerResetToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class AccountController extends Controller
 {
@@ -75,8 +80,19 @@ class AccountController extends Controller
         return view('account.forgot_password');
     }
 
-    public function check_forgot_password(){
-
+    public function check_forgot_password(ForgotPasswordRequest $request){
+        $customer = Customer::where('email', $request->email)->first();
+        // echo $customer;die();
+        $token = Str::random(40);
+        $tokenData = [
+            "email" => $request->email,
+            "token" => $token
+        ];
+        if(CustomerResetToken::create($tokenData)){
+            Mail::to($request->email)->send(new ForgotPassword($customer, $token));
+            return redirect()->back()->with('success', 'Send email successfully, please check your email to reset your password');
+        }
+        return redirect()->back()->with('error', 'Send email failed');
     }
 
     public function profile(){
@@ -89,16 +105,29 @@ class AccountController extends Controller
         $data = $request->only('name', 'email', 'phone', 'address', 'gender');
         $check = $auth->update($data);
         if ($check){
-            return redirect()->back()->with('success', 'Update profile Successfully');
+            return redirect()->back()->with('success', 'Update profile successfully');
         }
         return redirect()->back()->with('error', 'Update profile failed');
     }
 
-    public function reset_password(){
+    public function reset_password($token){
+        $tokenData = CustomerResetToken::where('token', $token)->firstOrFail();
+        $customer = $tokenData->customer;
         return view('account.reset_password');
     }
 
-    public function check_reset_password(){
+    public function check_reset_password(ResetPasswordRequest $request, $token){
+        $tokenData = CustomerResetToken::where('token', $token)->firstOrFail();
+        $customer = $tokenData->customer;
 
+        $data = [
+            'password' => bcrypt(request(('password')))
+        ];
+
+        $check = $customer->update($data);
+        if ($check){
+            return redirect()->route('account.login')->with('success', 'Reset password successfully');
+        }
+        return redirect()->back()->with('error', 'Reset password failed');
     }
 }

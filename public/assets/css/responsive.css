@@ -101,9 +101,9 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (max-width: 1199.98px) {
-    .contact-wrap {
-        padding: 100px 100px;
-    }
+.contact-wrap {
+    padding: 100px 100px;
+}
 .container,
 .custom-container {
     max-width: 960px;

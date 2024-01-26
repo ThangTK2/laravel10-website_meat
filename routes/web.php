@@ -39,6 +39,6 @@ Route::group(['prefix' => '/account'], function () {
     Route::get('/forgot-password', [AccountController::class, 'forgot_password'])->name('account.forgot_password');
     Route::post('/forgot-password', [AccountController::class, 'check_forgot_password'])->name('account.check_forgot_password');
 
-    Route::get('/reset-password', [AccountController::class, 'reset_password'])->name('account.reset_password');
-    Route::post('/reset-password', [AccountController::class, 'check_reset_password'])->name('account.check_reset_password');
+    Route::get('/reset-password/{token}', [AccountController::class, 'reset_password'])->name('account.reset_password');
+    Route::post('/reset-password/{token}', [AccountController::class, 'check_reset_password'])->name('account.check_reset_password');
 });

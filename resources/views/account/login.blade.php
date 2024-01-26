@@ -55,20 +55,16 @@
 
                                         <div class="login-register" >
                                             <p class="" style="margin: 0">
-                                                <small>You do not have an account?</small>
+                                                {{-- <small>You do not have an account?</small> --}}
+                                                <a class="" href="{{ route('account.register') }}">Create an account</a>
                                             </p>
-                                            <a class="" href="{{ route('account.register') }}">Create an account</a>
+                                            <a class="" href="{{ route('account.forgot_password') }}">Forgot password</a>
                                         </div>
                                     </div>
                                 </form>
                                 <p class="ajax-response mb-0"></p>
                             </div>
                         </div>
-                        {{-- <div class="col-lg-6">
-                            <div class="contact-map">
-                                <img src="uploads/logo/logo.png" alt="">
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>
