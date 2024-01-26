@@ -81,8 +81,7 @@ class AccountController extends Controller
     }
 
     public function check_forgot_password(ForgotPasswordRequest $request){
-        $customer = Customer::where('email', $request->email)->first();
-        // echo $customer;die();
+        $customer = Customer::where('email', $request->email)->first(); //$request->email: cái mình nhập trong ô input
         $token = Str::random(40);
         $tokenData = [
             "email" => $request->email,
@@ -90,7 +89,7 @@ class AccountController extends Controller
         ];
         if(CustomerResetToken::create($tokenData)){
             Mail::to($request->email)->send(new ForgotPassword($customer, $token));
-            return redirect()->back()->with('success', 'Send email successfully, please check your email to reset your password');
+            return redirect()->route('account.login')->with('success', 'Send email successfully, please check your email to reset your password');
         }
         return redirect()->back()->with('error', 'Send email failed');
     }
@@ -112,13 +111,13 @@ class AccountController extends Controller
 
     public function reset_password($token){
         $tokenData = CustomerResetToken::where('token', $token)->firstOrFail();
-        $customer = $tokenData->customer;
+        $customer = Customer::where('email', $tokenData->email)->firstOrFail();
         return view('account.reset_password');
     }
 
     public function check_reset_password(ResetPasswordRequest $request, $token){
         $tokenData = CustomerResetToken::where('token', $token)->firstOrFail();
-        $customer = $tokenData->customer;
+        $customer = Customer::where('email', $tokenData->email)->firstOrFail();
 
         $data = [
             'password' => bcrypt(request(('password')))

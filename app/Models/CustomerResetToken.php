@@ -12,8 +12,4 @@ class CustomerResetToken extends Model
     protected $fillable = [
         'email', 'token',
     ];
-
-    public function customer(){
-        return $this->hasOne(Customer::class, 'email', 'email');
-    }
 }

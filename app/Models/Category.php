@@ -13,7 +13,7 @@ class Category extends Model
         'name', 'status'
     ];
 
-    // 1-n
+    // hasOne: mqh 1-n
     public function products(){
         return $this->hasMany(Product::class, 'category_id', 'id');
     }

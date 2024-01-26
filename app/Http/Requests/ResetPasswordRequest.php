@@ -33,7 +33,7 @@ class ResetPasswordRequest extends FormRequest
             'password.required' => 'Bạn chưa nhập mật khẩu.',
             'password.min' => 'Độ dài password tối thiểu là 4 ký tự.',
             'confirm_password.required' => 'Bạn chưa nhập lại mật khẩu.',
-            'confirm_password.same' => 'Mật khẩu không khớp.'
+            'confirm_password.same' => 'Mật khẩu nhập lại không khớp.'
         ];
     }
 }
