@@ -17,6 +17,7 @@
       <link rel="stylesheet" href="admin_assets/dist/css/AdminLTE.min.css">
       <!-- iCheck -->
       <link rel="stylesheet" href="admin_assets/plugins/iCheck/square/blue.css">
+      <link rel="stylesheet" href="assets/css/customize.css">
       <!-- Google Font -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
    </head>
@@ -31,13 +32,21 @@
             <form action="" method="post">
                @csrf
                <div class="form-group has-feedback">
-                  <input type="email" name="email" class="form-control" placeholder="Email">
+                  <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
                   <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                </div>
+                @error('email')
+                    <div class="error-message">{{ $message }}</div>
+                @enderror
+
                <div class="form-group has-feedback">
                   <input type="password" name="password" class="form-control" placeholder="Password">
                   <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                </div>
+                @error('password')
+                    <div class="error-message">{{ $message }}</div>
+                @enderror
+
                <div class="row">
                   <div class="col-xs-8">
                      <div class="checkbox">

@@ -50,5 +50,6 @@ Route::post('/admin/login', [AdminController::class, 'check_login'])->name('admi
 
 Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 });
 

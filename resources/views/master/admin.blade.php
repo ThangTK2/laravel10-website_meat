@@ -29,7 +29,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">TK2</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">Admin Bemet</span>
+      <span class="logo-lg">Admin</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -47,7 +47,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="admin_assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">TK2</span>
+              <span class="hidden-xs">{{ auth()->user()->name }}</span>
             </a>
           </li>
         </ul>
@@ -67,14 +67,14 @@
           <img src="admin_assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Logout</a>
+          <p>{{ auth()->user()->name }}</p>
+          <a href="{{ route('admin.logout') }}"><i class="fa fa-circle text-success"></i> Logout</a>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li>
-            <a href="../widgets.html">
+            <a href="{{ route('admin.index') }}">
               <i class="fa fa-home"></i> <span>Dashboard</span>
             </a>
         </li>
