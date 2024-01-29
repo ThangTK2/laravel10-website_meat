@@ -1,4 +1,4 @@
-<div style="border: 1px solid #000; padding: 10px 20px; width: 600px;">
+<div style="border: 1px solid #337ab7; padding: 10px 20px; width: 600px;">
     <h3>Hi, {{ $customer->name }}</h3>
     <p>
         Change Password now!

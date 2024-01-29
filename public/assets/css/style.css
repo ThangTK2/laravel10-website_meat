@@ -46,7 +46,7 @@
     --tg-body-font-family: 'Poppins', sans-serif;
     --tg-heading-font-family: 'Paytone One', sans-serif;
     --tg-pacifico-font-family: 'Pacifico', cursive;
-    --tg-primary-color: #df2614;
+    --tg-primary-color: #f33a28;
     --tg-secondary-color: #1e0e09;
     --tg-body-font-color: #7f6f6c;
     --tg-heading-font-color: #2a1510;
@@ -3811,7 +3811,7 @@ body.search-visible {
     top: 0;
     width: 100%;
     height: 100%;
-    background: #000;
+    background: #337ab7;
     opacity: .65;
 }
 .cta-content {
@@ -3925,7 +3925,7 @@ body.search-visible {
     line-height: 0;
     right: 5%;
     bottom: 0;
-    color: #000000;
+    color: #337ab7000;
     opacity: .03;
     z-index: -1;
 }
@@ -4218,7 +4218,7 @@ body.search-visible {
     bottom: 40px;
     font-size: 70px;
     line-height: 1;
-    color: #000000;
+    color: #337ab7000;
     opacity: .2;
     z-index: -1;
 }

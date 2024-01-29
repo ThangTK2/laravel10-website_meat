@@ -1,6 +1,6 @@
 /*!
  * AdminLTE v2.4.18
- * 
+ *
  *   Author:  Colorlib
  *   Support: <https://github.com/ColorlibHQ/AdminLTE/issues>
  *   Repository: git://github.com/ColorlibHQ/AdminLTE.git
@@ -168,7 +168,7 @@ h6,
 }
 /* General Links */
 a {
-  color: #3c8dbc;
+  color: #f33a28;
 }
 a:hover,
 a:active,
@@ -1287,7 +1287,7 @@ a:focus {
   border-color: #d2d6de;
 }
 .form-control:focus {
-  border-color: #3c8dbc;
+  border-color: #f33a28;
   box-shadow: none;
 }
 .form-control::-moz-placeholder,
@@ -1445,7 +1445,7 @@ a:focus {
 }
 .progress-bar-light-blue,
 .progress-bar-primary {
-  background-color: #3c8dbc;
+  background-color: #f33a28;
 }
 .progress-striped .progress-bar-light-blue,
 .progress-striped .progress-bar-primary {
@@ -1585,7 +1585,7 @@ a:focus {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 .box.box-primary {
-  border-top-color: #3c8dbc;
+  border-top-color: #f33a28;
 }
 .box.box-info {
   border-top-color: #00c0ef;
@@ -1646,12 +1646,12 @@ a:focus {
   color: #444;
 }
 .box.box-solid.box-primary {
-  border: 1px solid #3c8dbc;
+  border: 1px solid #f33a28;
 }
 .box.box-solid.box-primary > .box-header {
   color: #fff;
-  background: #3c8dbc;
-  background-color: #3c8dbc;
+  background: #f33a28;
+  background-color: #f33a28;
 }
 .box.box-solid.box-primary > .box-header a,
 .box.box-solid.box-primary > .box-header .btn {
@@ -1745,7 +1745,7 @@ a:focus {
   left: 50%;
   margin-left: -15px;
   margin-top: -15px;
-  color: #000;
+  color: #337ab7;
   font-size: 30px;
 }
 .box .overlay.dark,
@@ -1977,7 +1977,7 @@ a:focus {
   border-left-color: #00a65a;
 }
 .todo-list .primary {
-  border-left-color: #3c8dbc;
+  border-left-color: #f33a28;
 }
 .todo-list .handle {
   display: inline-block;
@@ -2279,13 +2279,13 @@ a:focus {
   background-color: #e7e7e7;
 }
 .btn-primary {
-  background-color: #3c8dbc;
-  border-color: #367fa9;
+  background-color: #f33a28;
+  border-color: #f33a28;
 }
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.hover {
-  background-color: #367fa9;
+  background-color: #f33a28;
 }
 .btn-success {
   background-color: #00a65a;
@@ -2433,7 +2433,7 @@ a:focus {
   margin-right: 10px;
 }
 .alert .close {
-  color: #000;
+  color: #337ab7;
   opacity: 0.2;
   filter: alpha(opacity=20);
 }
@@ -2482,7 +2482,7 @@ a:focus {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  border-top-color: #3c8dbc;
+  border-top-color: #f33a28;
 }
 .nav-pills > li.active > a {
   font-weight: 600;
@@ -2499,7 +2499,7 @@ a:focus {
   background: transparent;
   color: #444;
   border-top: 0;
-  border-left-color: #3c8dbc;
+  border-left-color: #f33a28;
 }
 .nav-stacked > li.header {
   border-bottom: 1px solid #ddd;
@@ -2550,7 +2550,7 @@ a:focus {
   border-color: transparent;
 }
 .nav-tabs-custom > .nav-tabs > li.active {
-  border-top-color: #3c8dbc;
+  border-top-color: #f33a28;
 }
 .nav-tabs-custom > .nav-tabs > li.active > a,
 .nav-tabs-custom > .nav-tabs > li.active:hover > a {
@@ -2607,7 +2607,7 @@ a:focus {
   color: #999;
 }
 .nav-tabs-custom.tab-primary > .nav-tabs > li.active {
-  border-top-color: #3c8dbc;
+  border-top-color: #f33a28;
 }
 .nav-tabs-custom.tab-info > .nav-tabs > li.active {
   border-top-color: #00c0ef;
@@ -2923,13 +2923,13 @@ table.text-center th {
   border-left-color: #dd4b39;
 }
 .direct-chat-primary .right > .direct-chat-text {
-  background: #3c8dbc;
-  border-color: #3c8dbc;
+  background: #f33a28;
+  border-color: #f33a28;
   color: #fff;
 }
 .direct-chat-primary .right > .direct-chat-text:after,
 .direct-chat-primary .right > .direct-chat-text:before {
-  border-left-color: #3c8dbc;
+  border-left-color: #f33a28;
 }
 .direct-chat-warning .right > .direct-chat-text {
   background: #f39c12;
@@ -4286,25 +4286,25 @@ fieldset[disabled] .btn-pinterest.focus {
   background-color: #fff;
 }
 .btn-reddit {
-  color: #000;
+  color: #337ab7;
   background-color: #eff7ff;
   border-color: rgba(0, 0, 0, 0.2);
 }
 .btn-reddit:focus,
 .btn-reddit.focus {
-  color: #000;
+  color: #337ab7;
   background-color: #bcddff;
   border-color: rgba(0, 0, 0, 0.2);
 }
 .btn-reddit:hover {
-  color: #000;
+  color: #337ab7;
   background-color: #bcddff;
   border-color: rgba(0, 0, 0, 0.2);
 }
 .btn-reddit:active,
 .btn-reddit.active,
 .open > .dropdown-toggle.btn-reddit {
-  color: #000;
+  color: #337ab7;
   background-color: #bcddff;
   border-color: rgba(0, 0, 0, 0.2);
 }
@@ -4317,7 +4317,7 @@ fieldset[disabled] .btn-pinterest.focus {
 .btn-reddit:active.focus,
 .btn-reddit.active.focus,
 .open > .dropdown-toggle.btn-reddit.focus {
-  color: #000;
+  color: #337ab7;
   background-color: #98ccff;
   border-color: rgba(0, 0, 0, 0.2);
 }
@@ -4340,7 +4340,7 @@ fieldset[disabled] .btn-reddit.focus {
 }
 .btn-reddit .badge {
   color: #eff7ff;
-  background-color: #000;
+  background-color: #337ab7;
 }
 .btn-soundcloud {
   color: #fff;
@@ -4797,14 +4797,14 @@ fieldset[disabled] .btn-yahoo.focus {
   height: 34px;
 }
 .select2-container--default.select2-container--open {
-  border-color: #3c8dbc;
+  border-color: #f33a28;
 }
 .select2-dropdown {
   border: 1px solid #d2d6de;
   border-radius: 0;
 }
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-  background-color: #3c8dbc;
+  background-color: #f33a28;
   color: white;
 }
 .select2-results__option {
@@ -4839,7 +4839,7 @@ fieldset[disabled] .btn-yahoo.focus {
 }
 .select2-container--default.select2-container--focus .select2-selection--multiple,
 .select2-container--default .select2-search--dropdown .select2-search__field {
-  border-color: #3c8dbc !important;
+  border-color: #f33a28 !important;
 }
 .select2-container--default .select2-results__option[aria-disabled=true] {
   color: #999;
@@ -4856,14 +4856,14 @@ fieldset[disabled] .btn-yahoo.focus {
   border-radius: 0;
 }
 .select2-container--default .select2-selection--multiple:focus {
-  border-color: #3c8dbc;
+  border-color: #f33a28;
 }
 .select2-container--default.select2-container--focus .select2-selection--multiple {
   border-color: #d2d6de;
 }
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
-  background-color: #3c8dbc;
-  border-color: #367fa9;
+  background-color: #f33a28;
+  border-color: #f33a28;
   padding: 1px 10px;
   color: #fff;
 }
@@ -5000,7 +5000,7 @@ fieldset[disabled] .btn-yahoo.focus {
   color: #fff !important;
 }
 .bg-gray {
-  color: #000;
+  color: #337ab7;
   background-color: #d2d6de !important;
 }
 .bg-gray-light {
@@ -5037,7 +5037,7 @@ fieldset[disabled] .btn-yahoo.focus {
 .bg-light-blue,
 .label-primary,
 .modal-primary .modal-body {
-  background-color: #3c8dbc !important;
+  background-color: #f33a28 !important;
 }
 .bg-green,
 .callout.callout-success,
@@ -5071,11 +5071,11 @@ fieldset[disabled] .btn-yahoo.focus {
   background-color: #D81B60 !important;
 }
 .bg-gray-active {
-  color: #000;
+  color: #337ab7;
   background-color: #b5bbc8 !important;
 }
 .bg-black-active {
-  background-color: #000000 !important;
+  background-color: #337ab7000 !important;
 }
 .bg-red-active,
 .modal-danger .modal-header,
@@ -5149,7 +5149,7 @@ fieldset[disabled] .btn-yahoo.focus {
   color: #111 !important;
 }
 .text-light-blue {
-  color: #3c8dbc !important;
+  color: #f33a28 !important;
 }
 .text-green {
   color: #00a65a !important;
@@ -5252,12 +5252,12 @@ fieldset[disabled] .btn-yahoo.focus {
   color: #fff;
 }
 .bg-light-blue-gradient {
-  background: #3c8dbc !important;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3c8dbc), color-stop(1, #67a8ce)) !important;
-  background: -ms-linear-gradient(bottom, #3c8dbc, #67a8ce) !important;
-  background: -moz-linear-gradient(center bottom, #3c8dbc 0%, #67a8ce 100%) !important;
-  background: -o-linear-gradient(#67a8ce, #3c8dbc) !important;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#67a8ce', endColorstr='#3c8dbc', GradientType=0) !important;
+  background: #f33a28 !important;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f33a28), color-stop(1, #67a8ce)) !important;
+  background: -ms-linear-gradient(bottom, #f33a28, #67a8ce) !important;
+  background: -moz-linear-gradient(center bottom, #f33a28 0%, #67a8ce 100%) !important;
+  background: -o-linear-gradient(#67a8ce, #f33a28) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#67a8ce', endColorstr='#f33a28', GradientType=0) !important;
   color: #fff;
 }
 .bg-blue-gradient {
@@ -5498,7 +5498,7 @@ hr {
   background: #f56954;
 }
 #blue .slider-selection {
-  background: #3c8dbc;
+  background: #f33a28;
 }
 #green .slider-selection {
   background: #00a65a;

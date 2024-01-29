@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <base href="/">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>@yield('title')</title>
+  <link rel="shortcut icon" type="image/x-icon" href="uploads/favicon.png">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -25,7 +27,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="admin_assets/index2.html" class="logo">
+    <a href="{{ route('admin.index') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">TK2</span>
       <!-- logo for regular state and mobile devices -->
@@ -86,8 +88,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="admin_assets/index.html"><i class="fa fa-circle-o"></i> List</a></li>
-            <li><a href="admin_assets/index2.html"><i class="fa fa-circle-o"></i> Add New</a></li>
+            <li><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> List Categories</a></li>
+            <li><a href="{{ route('category.create') }}"><i class="fa fa-circle-o"></i> Add New Category</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -141,7 +143,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-          Footer
+          ©️ TK2 - Bemet
         </div>
         <!-- /.box-footer-->
       </div>

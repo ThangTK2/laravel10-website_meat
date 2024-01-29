@@ -103,7 +103,7 @@
 }
 .skin-black-light .sidebar-menu > li:hover > a,
 .skin-black-light .sidebar-menu > li.active > a {
-  color: #000000;
+  color: #337ab7000;
   background: #f4f4f5;
 }
 .skin-black-light .sidebar-menu > li.active {
@@ -126,7 +126,7 @@
 }
 .skin-black-light .sidebar-menu .treeview-menu > li.active > a,
 .skin-black-light .sidebar-menu .treeview-menu > li > a:hover {
-  color: #000000;
+  color: #337ab7000;
 }
 .skin-black-light .sidebar-menu .treeview-menu > li.active > a {
   font-weight: 600;

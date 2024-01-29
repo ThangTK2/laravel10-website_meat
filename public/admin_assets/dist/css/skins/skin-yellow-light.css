@@ -83,7 +83,7 @@
 }
 .skin-yellow-light .sidebar-menu > li:hover > a,
 .skin-yellow-light .sidebar-menu > li.active > a {
-  color: #000000;
+  color: #337ab7000;
   background: #f4f4f5;
 }
 .skin-yellow-light .sidebar-menu > li.active {
@@ -106,7 +106,7 @@
 }
 .skin-yellow-light .sidebar-menu .treeview-menu > li.active > a,
 .skin-yellow-light .sidebar-menu .treeview-menu > li > a:hover {
-  color: #000000;
+  color: #337ab7000;
 }
 .skin-yellow-light .sidebar-menu .treeview-menu > li.active > a {
   font-weight: 600;
