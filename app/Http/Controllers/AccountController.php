@@ -118,11 +118,9 @@ class AccountController extends Controller
     public function check_reset_password(ResetPasswordRequest $request, $token){
         $tokenData = CustomerResetToken::where('token', $token)->firstOrFail();
         $customer = Customer::where('email', $tokenData->email)->firstOrFail();
-
         $data = [
             'password' => bcrypt(request(('password')))
         ];
-
         $check = $customer->update($data);
         if ($check){
             return redirect()->route('account.login')->with('success', 'Reset password successfully');

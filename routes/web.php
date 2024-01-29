@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,3 +43,12 @@ Route::group(['prefix' => '/account'], function () {
     Route::get('/reset-password/{token}', [AccountController::class, 'reset_password'])->name('account.reset_password');
     Route::post('/reset-password/{token}', [AccountController::class, 'check_reset_password'])->name('account.check_reset_password');
 });
+
+// ADMIN
+Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
+Route::post('/admin/login', [AdminController::class, 'check_login'])->name('admin.check_login');
+
+Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+});
+
