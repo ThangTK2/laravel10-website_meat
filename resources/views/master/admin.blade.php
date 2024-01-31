@@ -17,6 +17,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="admin_assets/dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="admin_assets/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="assets/css/customize.css">
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -27,7 +28,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="{{ route('admin.index') }}" class="logo">
+    <a href="{{ route('home.index') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">TK2</span>
       <!-- logo for regular state and mobile devices -->
@@ -100,8 +101,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="admin_assets/index.html"><i class="fa fa-circle-o"></i> List</a></li>
-              <li><a href="admin_assets/index2.html"><i class="fa fa-circle-o"></i> Add New</a></li>
+              <li><a href="{{ route('product.index') }}"><i class="fa fa-circle-o"></i> List Products</a></li>
+              <li><a href="{{ route('product.create') }}"><i class="fa fa-circle-o"></i> Add New Product</a></li>
             </ul>
         </li>
         <li class="treeview">

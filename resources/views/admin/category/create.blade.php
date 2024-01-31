@@ -1,5 +1,5 @@
 @extends('master.admin')
-@section('title', 'Create Category')
+@section('title', 'Admin | Create Category')
 @section('main')
 
 <div class="row">

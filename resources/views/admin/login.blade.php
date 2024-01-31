@@ -4,7 +4,7 @@
       <base href="/">
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>AdminLTE 2 | Log in</title>
+      <title>Admin | Log in</title>
       <!-- Tell the browser to be responsive to screen width -->
       <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
       <!-- Bootstrap 3.3.7 -->
@@ -20,6 +20,7 @@
       <link rel="stylesheet" href="assets/css/customize.css">
       <!-- Google Font -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+      <link rel="shortcut icon" type="image/x-icon" href="uploads/favicon.png">
    </head>
    <body class="hold-transition login-page">
       <div class="login-box">
@@ -28,7 +29,7 @@
          </div>
          <!-- /.login-logo -->
          <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">Sign in now!</p>
             <form action="" method="post">
                @csrf
                <div class="form-group has-feedback">

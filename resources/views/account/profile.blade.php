@@ -66,7 +66,7 @@
                                         @enderror
 
                                         <div class="form-grp">
-                                            <select name="gender" class="form-control" id="" style="background: #f7f3ec; color: #337ab7;; padding: 14px 20px">
+                                            <select name="gender" class="form-control" id="" style="background: #f7f3ec; color: #000;; padding: 14px 20px">
                                                 {{-- <option value="">Select Gender *</option> --}}
                                                 <option value="1" {{ $auth->gender == 1 ? 'selected' : ''  }}>Male</option>
                                                 <option value="0" {{ $auth->gender == 0 ? 'selected' : ''  }}>Female</option>

@@ -17,4 +17,9 @@ class Product extends Model
     public function cat(){
         return $this->hasOne(Category::class, 'id', 'category_id');
     }
+
+    // 1-n
+    public function images(){
+        return $this->hasMany(ProductImage::class, 'product_id', 'id');
+    }
 }

@@ -1,12 +1,11 @@
 @extends('master.admin')
-@section('title', 'List Categories')
+@section('title', 'Admin | List Categories')
 @section('main')
 
 <form class="form-inline" method="POST">
     @csrf
     <div class="form-group">
-        <label for=""></label>
-        <input type="text" name="" id="" class="form-control" placeholder="Search..." aria-describedby="helpId">
+        <input type="text" name="" id="" class="form-control" placeholder="Search..." >
         <button type="submit" id="helpId" class="btn btn-danger"><i class="fa fa-search"></i></button>
         <a href="{{ route('category.create') }}" class="btn btn-success float-right"><i class="fa fa-plus"></i></a>
     </div>
