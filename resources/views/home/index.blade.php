@@ -36,40 +36,30 @@
             <section class="features-area pt-130 pb-70">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <div class="features-item tg-motion-effects">
-                                <div class="features-content">
-                                    <span>frieza products</span>
-                                    <h4 class="title"><a href="shop.html">sunday Limited Offer</a></h4>
-                                    <p>make a purchase from you <br> during</p>
-                                    <span class="price">$12.00</span>
-                                </div>
-                                <div class="features-img">
-                                    <img src="uploads/images/features_img01.png" alt="">
-                                    <div class="features-shape">
-                                        <img src="uploads/images/features_shape.png" alt="" class="tg-motion-effects4">
+                        @foreach ($new_products as $item)
+                            <div class="col-lg-6">
+                                <div class="features-item tg-motion-effects">
+                                    <div class="features-content">
+                                        <span>{{ $item->name }}</span>
+                                        <h4 class="title"><a href="shop.html">sunday Limited Offer</a></h4>
+                                        <p>make a purchase from you <br> during</p>
+                                        @if ($item->sale_price > 0)
+                                            <span><s>${{ $item->price }}</s></span>
+                                            <span class="price">${{ $item->sale_price }}</span>
+                                        @else
+                                            <span class="price">${{ $item->price }}</span>
+                                        @endif
                                     </div>
-                                </div>
-                                <div class="features-overlay-shape" data-background="uploads/images/features_overlay.png"></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="features-item tg-motion-effects">
-                                <div class="features-content">
-                                    <span>only chicken</span>
-                                    <h4 class="title"><a href="shop.html">flash sale Limited Offer</a></h4>
-                                    <p>make a purchase from you <br> during</p>
-                                    <span class="price">$6.00</span>
-                                </div>
-                                <div class="features-img">
-                                    <img src="uploads/images/features_img02.png" alt="">
-                                    <div class="features-shape">
-                                        <img src="uploads/images/features_shape.png" alt="" class="tg-motion-effects4">
+                                    <div class="features-img">
+                                        <img src="uploads/product/{{ $item->image }}" alt="">
+                                        <div class="features-shape">
+                                            <img src="uploads/images/features_shape.png" alt="" class="tg-motion-effects4">
+                                        </div>
                                     </div>
+                                    <div class="features-overlay-shape" data-background="uploads/images/features_overlay.png"></div>
                                 </div>
-                                <div class="features-overlay-shape" data-background="uploads/images/features_overlay.png"></div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </section>
@@ -85,81 +75,42 @@
                     <div class="col-lg-12">
                         <div class="section-title text-center mb-60">
                             <span class="sub-title">Organic Shop</span>
-                            <h2 class="title">Our Organic Products</h2>
+                            <h2 class="title">Sale Products</h2>
                             <div class="title-shape" data-background="uploads/images/title_shape.png"></div>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-item">
-                            <div class="product-img">
-                                <a href="shop-details.html"><img src="uploads/product/product_img01.png" alt=""></a>
-                            </div>
-                            <div class="product-content">
-                                <div class="line" data-background="uploads/images/line.png"></div>
-                                <h4 class="title"><a href="shop-details.html">hamburg meat</a></h4>
-                                <h6 class="price">$6.99</h6>
-                                <div class="product-tag">
-                                    <ul class="list-wrap">
-                                        <li><a href="shop.html">Garden,</a></li>
-                                        <li><a href="shop.html">Tools</a></li>
-                                    </ul>
+                    @foreach ($sale_products as $item)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="product-item">
+                                <div class="product-img">
+                                    <a href="shop-details.html"><img src="uploads/product/{{ $item->image }}" alt="Image"></a>
+                                </div>
+                                <div class="product-content">
+                                    <div class="line" data-background="uploads/images/line.png"></div>
+                                    <h4 class="title"><a href="shop-details.html">{{ $item->name }}</a></h4>
+                                    @if ($item->sale_price > 0)
+                                        <span><s>${{ $item->price }}</s></span>
+                                        <span class="price">${{ $item->sale_price }}</span>
+                                    @else
+                                        <span class="price">${{ $item->price }}</span>
+                                    @endif
+                                    <div class="product-tag">
+                                        <ul class="list-wrap">
+                                            <li><a href="shop.html">Garden,</a></li>
+                                            <li><a href="shop.html">Tools</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-shape">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 401 314" preserveAspectRatio="none">
+                                        <path d="M331.5,1829h361a20,20,0,0,1,20,20l-29,274a20,20,0,0,1-20,20h-292a20,20,0,0,1-20-20l-40-274A20,20,0,0,1,331.5,1829Z" transform="translate(-311.5 -1829)" />
+                                    </svg>
                                 </div>
                             </div>
-                            <div class="product-shape">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 401 314" preserveAspectRatio="none">
-                                    <path d="M331.5,1829h361a20,20,0,0,1,20,20l-29,274a20,20,0,0,1-20,20h-292a20,20,0,0,1-20-20l-40-274A20,20,0,0,1,331.5,1829Z" transform="translate(-311.5 -1829)" />
-                                </svg>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-item">
-                            <div class="product-img">
-                                <a href="shop-details.html"><img src="uploads/product/product_img02.png" alt=""></a>
-                            </div>
-                            <div class="product-content">
-                                <div class="line" data-background="uploads/images/line.png"></div>
-                                <h4 class="title"><a href="shop-details.html">roast chicken</a></h4>
-                                <h6 class="price">$4.99</h6>
-                                <div class="product-tag">
-                                    <ul class="list-wrap">
-                                        <li><a href="shop.html">Garden,</a></li>
-                                        <li><a href="shop.html">Tools</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-shape">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 401 314" preserveAspectRatio="none">
-                                    <path d="M331.5,1829h361a20,20,0,0,1,20,20l-29,274a20,20,0,0,1-20,20h-292a20,20,0,0,1-20-20l-40-274A20,20,0,0,1,331.5,1829Z" transform="translate(-311.5 -1829)" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-item">
-                            <div class="product-img">
-                                <a href="shop-details.html"><img src="uploads/product/product_img03.png" alt=""></a>
-                            </div>
-                            <div class="product-content">
-                                <div class="line" data-background="uploads/images/line.png"></div>
-                                <h4 class="title"><a href="shop-details.html">stack meats</a></h4>
-                                <h6 class="price">$8.99</h6>
-                                <div class="product-tag">
-                                    <ul class="list-wrap">
-                                        <li><a href="shop.html">Garden,</a></li>
-                                        <li><a href="shop.html">Tools</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-shape">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 401 314" preserveAspectRatio="none">
-                                    <path d="M331.5,1829h361a20,20,0,0,1,20,20l-29,274a20,20,0,0,1-20,20h-292a20,20,0,0,1-20-20l-40-274A20,20,0,0,1,331.5,1829Z" transform="translate(-311.5 -1829)" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="shop-shape">
@@ -195,80 +146,36 @@
                     <div class="col-lg-12">
                         <div class="section-title text-center mb-70">
                             <span class="sub-title">Organic Shop</span>
-                            <h2 class="title">Our Organic Products</h2>
+                            <h2 class="title">Feature Products</h2>
                             <div class="title-shape" data-background="uploads/images/title_shape.png"></div>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-lg-6 col-md-10">
-                        <div class="product-item-two">
-                            <div class="product-img-two">
-                                <a href="shop-details.html"><img src="uploads/product/organic_product01.png" alt=""></a>
-                            </div>
-                            <div class="product-content-two">
-                                <div class="product-info">
-                                    <h4 class="title"><a href="shop-details.html">Mutton Cutlet</a></h4>
-                                    <p>We provide well shaped fresh and the organic meat well.</p>
+                    @foreach ($feature_products as $item)
+                        <div class="col-lg-6 col-md-10">
+                            <div class="product-item-two">
+                                <div class="product-img-two">
+                                    <a href="shop-details.html"><img src="uploads/product/{{ $item->image }}" alt="Image"></a>
                                 </div>
-                                <div class="product-price">
-                                    <h5 class="price">$6.99</h5>
-                                    <a href="#" class="tag">Garden</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-10">
-                        <div class="product-item-two">
-                            <div class="product-img-two">
-                                <a href="shop-details.html"><img src="uploads/product/organic_product02.png" alt=""></a>
-                            </div>
-                            <div class="product-content-two">
-                                <div class="product-info">
-                                    <h4 class="title"><a href="shop-details.html">HAMBURG MEAT</a></h4>
-                                    <p>We provide well shaped fresh and the organic meat well.</p>
-                                </div>
-                                <div class="product-price">
-                                    <h5 class="price">$4.99</h5>
-                                    <a href="#" class="tag">Garden</a>
+                                <div class="product-content-two">
+                                    <div class="product-info">
+                                        <h4 class="title"><a href="shop-details.html">{{ $item->name }}</a></h4>
+                                        <p>{{ $item->description }}</p>
+                                    </div>
+                                    <div class="product-price">
+                                        @if ($item->sale_price > 0)
+                                            <span><s>${{ $item->price }}</s></span>
+                                            <span class="price">${{ $item->sale_price }}</span>
+                                        @else
+                                            <span class="price">${{ $item->price }}</span>
+                                        @endif
+                                        {{-- <a href="#" class="tag">Garden</a> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-10">
-                        <div class="product-item-two">
-                            <div class="product-img-two">
-                                <a href="shop-details.html"><img src="uploads/product/organic_product03.png" alt=""></a>
-                            </div>
-                            <div class="product-content-two">
-                                <div class="product-info">
-                                    <h4 class="title"><a href="shop-details.html">STACK MEATS</a></h4>
-                                    <p>We provide well shaped fresh and the organic meat well.</p>
-                                </div>
-                                <div class="product-price">
-                                    <h5 class="price">$7.99</h5>
-                                    <a href="#" class="tag">Garden</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-10">
-                        <div class="product-item-two">
-                            <div class="product-img-two">
-                                <a href="shop-details.html"><img src="uploads/product/organic_product04.png" alt=""></a>
-                            </div>
-                            <div class="product-content-two">
-                                <div class="product-info">
-                                    <h4 class="title"><a href="shop-details.html">ROAST CHICKEN</a></h4>
-                                    <p>We provide well shaped fresh and the organic meat well.</p>
-                                </div>
-                                <div class="product-price">
-                                    <h5 class="price">$8.99</h5>
-                                    <a href="#" class="tag">Garden</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="shop-now-btn text-center mt-40">
                     <a href="shop.html" class="btn">Shop Now</a>

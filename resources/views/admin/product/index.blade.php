@@ -28,13 +28,13 @@
     <tbody>
         @foreach ($products as $product)
             <tr>
-                <td scope="row">{{ $product->index + 1 }}</td>
+                <td scope="row">{{ $loop->index + 1 }}</td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->cat->name }}</td>  {{-- lấy ra được tên category, cat trong model Product  --}}
                 <td>{{ $product->price }} <span class="label label-success">{{ $product->sale_price }}</span></td>
                 <td>{{ $product->status == 0 ? 'Hidden' : 'Publish' }}</td>
                 <td>
-                    <img src="uploads/product/{{ $product->image }}" width="40px" alt="Image">
+                    <img src="uploads/product/{{ $product->image }}" width="50px" height="65px" alt="Image">
                 </td>
 
                 <td>
