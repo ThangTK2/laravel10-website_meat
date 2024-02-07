@@ -13,8 +13,9 @@ class Category extends Model
         'name', 'status'
     ];
 
-    // hasOne: mqh 1-n
+    // hasMany: mqh 1-n
     public function products(){
-        return $this->hasMany(Product::class, 'category_id', 'id');
+        return $this->hasMany(Product::class, 'category_id', 'id')->orderBy('created_at', 'desc'); //'id' của Category
     }
+
 }

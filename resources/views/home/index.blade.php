@@ -40,10 +40,10 @@
                             <div class="col-lg-6">
                                 <div class="features-item tg-motion-effects">
                                     <div class="features-content">
-                                        <span>{{ $item->name }}</span>
-                                        <h4 class="title"><a href="shop.html">sunday Limited Offer</a></h4>
-                                        <p>make a purchase from you <br> during</p>
-                                        @if ($item->sale_price > 0)
+                                        <span>ONLY CHICKEN</span>
+                                        <h4 class="title"><a href="shop.html">{{ $item->name }}</a></h4>
+                                        <p>{{ $item->description }}</p>
+                                        @if ($item->sale_price > 0) {{-- nếu có khuyến mãi --}}
                                             <span><s>${{ $item->price }}</s></span>
                                             <span class="price">${{ $item->sale_price }}</span>
                                         @else
@@ -90,6 +90,7 @@
                                 <div class="product-content">
                                     <div class="line" data-background="uploads/images/line.png"></div>
                                     <h4 class="title"><a href="shop-details.html">{{ $item->name }}</a></h4>
+                                    <p>{{ $item->description }}</p>
                                     @if ($item->sale_price > 0)
                                         <span><s>${{ $item->price }}</s></span>
                                         <span class="price">${{ $item->sale_price }}</span>

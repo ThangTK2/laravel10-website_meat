@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/about-us', [HomeController::class, 'about'])->name('home.about');
+Route::get('/category/{cat}', [HomeController::class, 'category'])->name('home.category');
 
 
 Route::group(['prefix' => '/account'], function () {

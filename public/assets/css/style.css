@@ -3811,7 +3811,7 @@ body.search-visible {
     top: 0;
     width: 100%;
     height: 100%;
-    background: #337ab7;
+    background: #000;
     opacity: .65;
 }
 .cta-content {

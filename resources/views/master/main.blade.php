@@ -101,19 +101,19 @@
                                     </div>
                                     <div class="navbar-wrap main-menu d-none d-lg-flex">
                                         <ul class="navigation">
-                                            <li class="active" class="menu-item-has-children"><a href="#">Home</a>
-                                                <ul class="sub-menu">
+                                            <li class="active" class="menu-item-has-children"><a href="{{ route('home.index') }}">Home</a>
+                                                {{-- <ul class="sub-menu">
                                                     <li><a href="index-2.html">Home One</a></li>
                                                     <li><a href="index-3.html">Home Two</a></li>
                                                     <li><a href="index-4.html">Home Three</a></li>
-                                                </ul>
+                                                </ul> --}}
                                             </li>
-                                            <li ><a href="about.html">ABOUT US</a></li>
+                                            <li ><a href="{{ route('home.about') }}">ABOUT US</a></li>
                                             <li class="menu-item-has-children"><a href="#">PRODUCTS</a>
                                                 <ul class="sub-menu">
-                                                    <li><a href="shop.html">Shop One</a></li>
-                                                    <li><a href="shop-2.html">Shop Two</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
+                                                    @foreach ($cats_home as $item)
+                                                        <li><a href="{{ route('home.category', $item->id) }}">{{ $item->name }}</a></li>
+                                                    @endforeach
                                                 </ul>
                                             </li>
                                             <li class="menu-item-has-children"><a href="#">BLOG</a>
