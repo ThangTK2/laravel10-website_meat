@@ -1,5 +1,5 @@
 @extends('master.main')
-
+@section('titile', $cat->name)
 @section('main')
     <!-- main-area -->
     <main>
@@ -56,12 +56,12 @@
                                         <div class="col-xl-4 col-md-6">
                                             <div class="product-item-three inner-product-item">
                                                 <div class="product-thumb-three">
-                                                    <a href="shop-details.html"><img src="uploads/product/{{ $item->image }}" alt="Image"></a>
+                                                    <a href="{{ route('home.product', $item->id) }}"><img src="uploads/product/{{ $item->image }}" alt="Image"></a>
                                                     <span class="batch">New<i class="fas fa-star"></i></span>
                                                 </div>
                                                 <div class="product-content-three">
                                                     <a class="tag">{{ $cat->name }}</a>
-                                                    <h2 class="title"><a href="shop-details.html">{{ $item->name }}</a></h2>
+                                                    <h2 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h2>
                                                     @if ($item->sale_price > 0)
                                                         <span><s>${{ $item->price }}</s></span>
                                                         <span class="price">${{ $item->sale_price }}</span>
@@ -123,10 +123,10 @@
                                         @foreach ($new_products as $item)
                                             <div class="lp-item">
                                                 <div class="lp-thumb">
-                                                    <a href="shop-details.html"><img src="uploads/product/{{ $item->image }}" alt="Image"></a>
+                                                    <a href="{{ route('home.product', $item->id) }}"><img src="uploads/product/{{ $item->image }}" alt="Image"></a>
                                                 </div>
                                                 <div class="lp-content">
-                                                    <h4 class="title"><a href="shop-details.html">{{ $item->name }}</a></h4>
+                                                    <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
                                                     @if ($item->sale_price > 0)
                                                         <span><s>${{ $item->price }}</s></span>
                                                         <span class="price">${{ $item->sale_price }}</span>

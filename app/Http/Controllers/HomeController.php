@@ -30,4 +30,9 @@ class HomeController extends Controller
         $new_products = Product::orderBy('created_at', 'desc')->limit(3)->get();
         return view('home.category', compact('cat', 'products', 'new_products'));
     }
+
+    public function product(Product $product) {  //$product: là tham số route trên đường dẫn bên web.php(line 24)
+        $products = Product::where('category_id', $product->category_id)->limit(12)->get(); //sản phẩm liên quan(related)
+        return view('home.product', compact('product', 'products'));
+    }
 }

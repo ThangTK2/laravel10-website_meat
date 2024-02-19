@@ -2,3 +2,11 @@ $request: Đây là một đối tượng của lớp Illuminate\Http\Request, �
 
 
 - nếu mà ở ngoài master view thì truyền trong AppServiceProvider.php
+
+
+
+
+
+WEB:
+- account admin: name: admin@gmail.com ||  password: 123456
+- account user: name: htnht1072@gmail.com ||  password: 1111

@@ -340,5 +340,7 @@
         <script src="assets/js/ajax-form.js"></script>
         <script src="assets/js/wow.min.js"></script>
         <script src="assets/js/main.js"></script>
+
+        @yield('js')
     </body>
 </html>

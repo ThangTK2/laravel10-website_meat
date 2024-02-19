@@ -1,5 +1,5 @@
 @extends('master.main')
-
+@section('titile', 'Trang chủ')
 @section('main')
     <!-- main-area -->
     <main>
@@ -40,8 +40,8 @@
                             <div class="col-lg-6">
                                 <div class="features-item tg-motion-effects">
                                     <div class="features-content">
-                                        <span>ONLY CHICKEN</span>
-                                        <h4 class="title"><a href="shop.html">{{ $item->name }}</a></h4>
+                                        <span> {{ $item->cat->name }}</span>
+                                        <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
                                         <p>{{ $item->description }}</p>
                                         @if ($item->sale_price > 0) {{-- nếu có khuyến mãi --}}
                                             <span><s>${{ $item->price }}</s></span>
@@ -85,11 +85,11 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="product-item">
                                 <div class="product-img">
-                                    <a href="shop-details.html"><img src="uploads/product/{{ $item->image }}" alt="Image"></a>
+                                    <a href="{{ route('home.product', $item->id) }}"><img src="uploads/product/{{ $item->image }}" alt="Image"></a>
                                 </div>
                                 <div class="product-content">
                                     <div class="line" data-background="uploads/images/line.png"></div>
-                                    <h4 class="title"><a href="shop-details.html">{{ $item->name }}</a></h4>
+                                    <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
                                     <p>{{ $item->description }}</p>
                                     @if ($item->sale_price > 0)
                                         <span><s>${{ $item->price }}</s></span>
@@ -157,11 +157,11 @@
                         <div class="col-lg-6 col-md-10">
                             <div class="product-item-two">
                                 <div class="product-img-two">
-                                    <a href="shop-details.html"><img src="uploads/product/{{ $item->image }}" alt="Image"></a>
+                                    <a href="{{ route('home.product', $item->id) }}"><img src="uploads/product/{{ $item->image }}" alt="Image"></a>
                                 </div>
                                 <div class="product-content-two">
                                     <div class="product-info">
-                                        <h4 class="title"><a href="shop-details.html">{{ $item->name }}</a></h4>
+                                        <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
                                         <p>{{ $item->description }}</p>
                                     </div>
                                     <div class="product-price">

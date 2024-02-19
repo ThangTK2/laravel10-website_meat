@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
 
-        view()->composer('*', function($view){  // nó sẽ được gọi mỗi khi view được render.
+        view()->composer('*', function($view){  // nó sẽ được gọi mỗi khi view được render. , * render all
             $cats_home = Category::orderBy('name', 'ASC')->where('status', 1)->get();
             $view->with(compact('cats_home'));
         });
