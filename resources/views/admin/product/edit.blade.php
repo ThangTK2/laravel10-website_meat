@@ -9,7 +9,7 @@
         <div class="col-md-7">
             <div class="form-group">
                 <label for="">Name</label>
-                <input type="text" name="name" value="{{ $product->name }}" class="form-control" placeholder="..." aria-describedby="helpId">
+                <input type="text" name="name" value="{{ $product->name }}" class="form-control" placeholder="...">
             </div>
             @error('name')
                 <div class="error-message">{{ $message }}</div>
@@ -30,46 +30,15 @@
 
             <div class="form-group">
                 <label for="">Description</label>
-                <textarea name="description" class="form-control" placeholder="...">{{ $product->description }}</textarea>
+                <textarea name="description" class="form-control description" placeholder="...">{{ $product->description }}</textarea>
             </div>
             @error('description')
-                <div class="error-message">{{ $message }}</div>
-            @enderror
-        </div>
-        <div class="col-md-5">
-            <div class="form-group">
-                <label for="">Price</label>
-                <input type="text" name="price" class="form-control" value="{{ $product->price }}" placeholder="..." aria-describedby="helpId">
-            </div>
-            @error('price')
-                <div class="error-message">{{ $message }}</div>
-            @enderror
-
-            <div class="form-group">
-                <label for="">Sale Price</label>
-                <input type="text" name="sale_price" class="form-control" value="{{ $product->sale_price }}" placeholder="..." aria-describedby="helpId">
-            </div>
-            @error('sale_price')
-                <div class="error-message">{{ $message }}</div>
-            @enderror
-
-            <div class="form-group">
-                <label for="">Image</label>
-                <input type="file" name="image" class="form-control" placeholder="..." aria-describedby="helpId">
-                <br>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img class="thumbnail" src="uploads/product/{{ $product->image }}" alt="Image" width="100%">
-                    </div>
-                </div>
-            </div>
-            @error('image')
                 <div class="error-message">{{ $message }}</div>
             @enderror
 
             <div class="form-group">
                 <label for="">Multiple images</label>
-                <input type="file" name="images[]" class="form-control" placeholder="..." multiple>
+                <input type="file" name="images[]" class="form-control" multiple  onchange="showMultipleImage(this)">
                 <br>
                 <div class="row" style="position: relative;">
                     @foreach ($product->images as $img)
@@ -79,7 +48,46 @@
                         </div>
                     @endforeach
                 </div>
+
+                <label>Các ảnh mới chọn sẽ thay thế ảnh cũ trước đó: </label>
+                <div class="row" id="show_multiple_img">
+                    <div class="col-md-3">
+                        <img class="thumbnail" src="" alt="Image">
+                    </div>
+                </div>
             </div>
+
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="">Price</label>
+                <input type="text" name="price" class="form-control" value="{{ $product->price }}" placeholder="...">
+            </div>
+            @error('price')
+                <div class="error-message">{{ $message }}</div>
+            @enderror
+
+            <div class="form-group">
+                <label for="">Sale Price</label>
+                <input type="text" name="sale_price" class="form-control" value="{{ $product->sale_price }}" placeholder="...">
+            </div>
+            @error('sale_price')
+                <div class="error-message">{{ $message }}</div>
+            @enderror
+
+            <div class="form-group">
+                <label for="">Image</label>
+                <input type="file" name="image" class="form-control" onchange="showImage(this)">
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="thumbnail" src="uploads/product/{{ $product->image }}" alt="Image" width="100%" id="show_img">
+                    </div>
+                </div>
+            </div>
+            @error('image')
+                <div class="error-message">{{ $message }}</div>
+            @enderror
 
             <div class="form-group">
                 <label for="">Status</label>
@@ -103,4 +111,47 @@
     </form>
 </div>
 
+@endsection
+
+@section('css')
+    <link rel="stylesheet" href="admin_assets/plugins/summernote/summernote.min.css">
+@endsection
+
+@section('js')
+    <script src="admin_assets/plugins/summernote/summernote.min.js"></script>
+    <script>
+        $('.description').summernote({
+            height: 300
+        })
+
+        function showImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#show_img').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function showMultipleImage(input) {
+            if (input.files && input.files.length) {
+                var _html = ``
+                for (let i = 0; i < input.files.length; i++) {
+                    var file = input.files[i];
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        _html += `
+                            <div class="">
+                                <img src="${e.target.result}" alt="Image" width="50%"
+                            </div>
+                        `
+                        $('#show_multiple_img').html(_html);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+
+    </script>
 @endsection

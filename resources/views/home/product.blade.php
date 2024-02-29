@@ -118,11 +118,7 @@
                             <div class="tab-content" id="descriptionTabContent">
                                 <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
                                     <div class="product-description-content">
-                                        <p>committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live.</p>
-                                        <ul class="list-wrap">
-                                            <li>Committed are products that have been produced</li>
-                                            <li>It’s the only way I know how to live.</li>
-                                        </ul>
+                                        {!! $product->description !!}
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">

@@ -14,7 +14,7 @@ class Category extends Model
     ];
 
     // hasMany: mqh 1-n
-    public function products(){
+    public function products(){ //products()là một phương thức trong model Category
         return $this->hasMany(Product::class, 'category_id', 'id')->orderBy('created_at', 'desc'); //'id' của Category
     }
 
