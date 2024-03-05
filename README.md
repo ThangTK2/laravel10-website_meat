@@ -10,3 +10,8 @@ $request: Đây là một đối tượng của lớp Illuminate\Http\Request, �
 WEB:
 - account admin: name: admin@gmail.com ||  password: 123456
 - account user: name: htnht1072@gmail.com ||  password: 1111
+
+
+
+auth: cho admin
+auth('cus'): cho người dùng

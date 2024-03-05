@@ -1,5 +1,5 @@
 @extends('master.main')
-@section('titile', $product->name)
+@section('title', $product->name)
 @section('main')
     <!-- main-area -->
     <main>

@@ -42,12 +42,23 @@
                                     <div class="features-content">
                                         <span> {{ $item->cat->name }}</span>
                                         <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
-                                        <p>{{ $item->description }}</p>
+                                        <p>{!! $item->description !!}</p>
                                         @if ($item->sale_price > 0) {{-- nếu có khuyến mãi --}}
                                             <span><s>${{ $item->price }}</s></span>
                                             <span class="price">${{ $item->sale_price }}</span>
                                         @else
                                             <span class="price">${{ $item->price }}</span>
+                                        @endif
+
+                                        {{-- auth('cus') bên config.auth  ||  favorited: bên Product.php line 30 --}}
+                                        @if (auth('cus')->check())
+                                            <div class="favorite-action">
+                                                @if ($item->favorited)
+                                                    <span><a title="Unlike" onclick="return confirm('Do you want to unlike the product?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
+                                                @else
+                                                    <span><a title="Like" href="{{ route('home.favorite', $item->id) }}"><i class="far fa-heart"></i></a></span>
+                                                @endif
+                                            </div>
                                         @endif
                                     </div>
                                     <div class="features-img">
@@ -90,19 +101,23 @@
                                 <div class="product-content">
                                     <div class="line" data-background="uploads/images/line.png"></div>
                                     <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
-                                    <p>{{ $item->description }}</p>
+                                    <p>{!! $item->description !!}</p>
                                     @if ($item->sale_price > 0)
                                         <span><s>${{ $item->price }}</s></span>
                                         <span class="price">${{ $item->sale_price }}</span>
                                     @else
                                         <span class="price">${{ $item->price }}</span>
                                     @endif
-                                    <div class="product-tag">
-                                        <ul class="list-wrap">
-                                            <li><a href="shop.html">Garden,</a></li>
-                                            <li><a href="shop.html">Tools</a></li>
-                                        </ul>
-                                    </div>
+
+                                    @if (auth('cus')->check())
+                                        <div class="favorite-action">
+                                            @if ($item->favorited)
+                                                <span><a title="Unlike" onclick="return confirm('Do you want to unlike?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
+                                            @else
+                                                <span><a title="Like" href="{{ route('home.favorite', $item->id) }}"><i class="far fa-heart"></i></a></span>
+                                            @endif
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="product-shape">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 401 314" preserveAspectRatio="none">
@@ -162,7 +177,16 @@
                                 <div class="product-content-two">
                                     <div class="product-info">
                                         <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
-                                        <p>{{ $item->description }}</p>
+                                        <p>{!! $item->description !!}</p>
+                                        @if (auth('cus')->check())
+                                            <div class="favorite-action">
+                                                @if ($item->favorited)
+                                                    <span><a title="Unlike" onclick="return confirm('Do you want to unlike?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
+                                                @else
+                                                    <span><a title="Like" href="{{ route('home.favorite', $item->id) }}"><i class="far fa-heart"></i></a></span>
+                                                @endif
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="product-price">
                                         @if ($item->sale_price > 0)
@@ -171,7 +195,6 @@
                                         @else
                                             <span class="price">${{ $item->price }}</span>
                                         @endif
-                                        {{-- <a href="#" class="tag">Garden</a> --}}
                                     </div>
                                 </div>
                             </div>

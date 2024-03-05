@@ -12,6 +12,7 @@ use App\Mail\ForgotPassword;
 use App\Mail\VerifyAccount;
 use App\Models\Customer;
 use App\Models\CustomerResetToken;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -127,4 +128,10 @@ class AccountController extends Controller
         }
         return redirect()->back()->with('error', 'Reset password failed');
     }
+
+    public function favorite() {
+        $favorites = Favorite::where('customer_id', auth('cus')->user()->id)->get(); //người click yêu thích giống với người dùng đang đăng nhập hiện tại
+        return view('account.favorite', compact('favorites'));
+    }
+
 }

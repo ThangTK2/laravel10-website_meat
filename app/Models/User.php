@@ -42,4 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // hasMany: mqh 1-n
+    public function favorites() {
+        return $this->hasMany(Favorite::class, 'customer_id', 'id'); //$this là model User
+    }
 }

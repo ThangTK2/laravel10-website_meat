@@ -1,5 +1,5 @@
 @extends('master.main')
-
+@section('title', 'Login')
 @section('main')
     <!-- main-area -->
     <main>

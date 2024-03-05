@@ -1,9 +1,8 @@
 @extends('master.main')
-@section('titile', $cat->name)
+@section('title', $cat->name)
 @section('main')
     <!-- main-area -->
     <main>
-
         <!-- breadcrumb-area -->
         <section class="breadcrumb-area tg-motion-effects breadcrumb-bg" data-background="uploads/bg/breadcrumb_bg.jpg">
             <div class="container">
@@ -67,6 +66,16 @@
                                                         <span class="price">${{ $item->sale_price }}</span>
                                                     @else
                                                         <span class="price">${{ $item->price }}</span>
+                                                    @endif
+
+                                                    @if (auth('cus')->check())
+                                                        <div class="favorite-action">
+                                                            @if ($item->favorited)
+                                                                <span><a title="Unlike" onclick="return confirm('Do you want to unlike?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
+                                                            @else
+                                                                <span><a title="Like" href="{{ route('home.favorite', $item->id) }}"><i class="far fa-heart"></i></a></span>
+                                                            @endif
+                                                        </div>
                                                     @endif
                                                     <div class="product-cart-wrap">
                                                         <form action="#">

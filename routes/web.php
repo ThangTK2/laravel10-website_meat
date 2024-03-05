@@ -22,6 +22,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/about-us', [HomeController::class, 'about'])->name('home.about');
 Route::get('/category/{cat}', [HomeController::class, 'category'])->name('home.category');
 Route::get('/product/{product}', [HomeController::class, 'product'])->name('home.product');
+Route::get('/favorite/{product}', [HomeController::class, 'favorite'])->name('home.favorite');
 
 
 Route::group(['prefix' => '/account'], function () {
@@ -29,6 +30,8 @@ Route::group(['prefix' => '/account'], function () {
     Route::post('/login', [AccountController::class, 'check_login'])->name('account.check_login');
     Route::get('/verify-account/{mail}', [AccountController::class, 'verify'])->name('account.verify');
     Route::get('/logout', [AccountController::class, 'logout'])->name('account.logout');
+
+    Route::get('/favorite', [AccountController::class, 'favorite'])->name('account.favorite');
 
     Route::get('/register', [AccountController::class, 'register'])->name('account.register');
     Route::post('/register', [AccountController::class, 'check_register'])->name('account.check_register');

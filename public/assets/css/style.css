@@ -5001,3 +5001,6 @@ body.search-visible {
     }
 }
 
+.favorite-action i{
+    font-size: 20px;
+}

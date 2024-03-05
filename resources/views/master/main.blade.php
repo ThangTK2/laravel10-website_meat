@@ -68,8 +68,9 @@
                                     <ul class="list-wrap">
                                         @if ( auth('cus')->check())
                                             <li><a href="{{ route('account.profile') }}">Hi, {{ auth('cus')->user()->name }}</a></li>
+                                            <li><a href="{{ route('account.favorite') }}">Product Favorite</a></li>
                                             <li><a href="{{ route('account.change_password') }}">Change Password</a></li>
-                                            <li><a href="{{ route('account.logout') }}">Logout</a></li>
+                                            <li><a onclick="return confirm('Do you want to logout?')" href="{{ route('account.logout') }}">Logout</a></li>
                                         @else
                                             <li><a href="{{ route('account.login') }}">Login</a></li>
                                             <li><a href="{{ route('account.register') }}">Register</a></li>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Favorite;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -34,5 +35,20 @@ class HomeController extends Controller
     public function product(Product $product) {  //$product: là tham số route trên đường dẫn bên web.php(line 24)
         $products = Product::where('category_id', $product->category_id)->limit(12)->get(); //sản phẩm liên quan(related)
         return view('home.product', compact('product', 'products'));
+    }
+
+    public function favorite($product_id) {   //$product_id: là tham số route trên đường dẫn bên web.php(line 25) ta đặt tên lại product_id
+        $data = [
+            'product_id' => $product_id,
+            'customer_id' => auth('cus')->id(),
+        ];
+        $favorited = Favorite::where(['product_id'=> $product_id, 'customer_id'=> auth('cus')->id()])->first();
+        if ($favorited) {
+            $favorited->delete();
+            return redirect()->back()->with('success', 'You already unlike the product successfully');
+        }else{
+            Favorite::create($data);
+            return redirect()->back()->with('success', 'You already like the product successfully');
+        }
     }
 }
