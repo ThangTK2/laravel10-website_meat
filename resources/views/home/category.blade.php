@@ -68,15 +68,19 @@
                                                         <span class="price">${{ $item->price }}</span>
                                                     @endif
 
-                                                    @if (auth('cus')->check())
-                                                        <div class="favorite-action">
+                                                    <div class="favorite-action">
+                                                        @if (auth('cus')->check())
                                                             @if ($item->favorited)
-                                                                <span><a title="Unlike" onclick="return confirm('Do you want to unlike?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
+                                                                <span><a title="Unlike" onclick="return confirm('Do you want to unlike the product?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
                                                             @else
                                                                 <span><a title="Like" href="{{ route('home.favorite', $item->id) }}"><i class="far fa-heart"></i></a></span>
                                                             @endif
-                                                        </div>
-                                                    @endif
+
+                                                            <a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a>
+                                                        @else
+                                                            <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Please log in to add products to cart')"><i class="fa fa-shopping-cart"></i></a>
+                                                        @endif
+                                                    </div>
                                                     <div class="product-cart-wrap">
                                                         <form action="#">
                                                             <div class="cart-plus-minus">

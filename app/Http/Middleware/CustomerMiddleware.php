@@ -15,7 +15,7 @@ class CustomerMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth('cus')->check()){
+        if(auth('cus')->check()){ //cus trong config/auth.php
             return $next($request);
         }
         return redirect()->route('account.login');

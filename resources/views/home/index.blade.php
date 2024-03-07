@@ -51,15 +51,19 @@
                                         @endif
 
                                         {{-- auth('cus') bên config.auth  ||  favorited: bên Product.php line 30 --}}
-                                        @if (auth('cus')->check())
-                                            <div class="favorite-action">
+                                        <div class="favorite-action">
+                                            @if (auth('cus')->check())
                                                 @if ($item->favorited)
                                                     <span><a title="Unlike" onclick="return confirm('Do you want to unlike the product?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
                                                 @else
                                                     <span><a title="Like" href="{{ route('home.favorite', $item->id) }}"><i class="far fa-heart"></i></a></span>
                                                 @endif
-                                            </div>
-                                        @endif
+
+                                                <a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a>
+                                            @else
+                                                <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Please log in to add products to cart')"><i class="fa fa-shopping-cart"></i></a>
+                                            @endif
+                                        </div>
                                     </div>
                                     <div class="features-img">
                                         <img src="uploads/product/{{ $item->image }}" alt="">
@@ -109,15 +113,19 @@
                                         <span class="price">${{ $item->price }}</span>
                                     @endif
 
-                                    @if (auth('cus')->check())
-                                        <div class="favorite-action">
+                                    <div class="favorite-action">
+                                        @if (auth('cus')->check())
                                             @if ($item->favorited)
-                                                <span><a title="Unlike" onclick="return confirm('Do you want to unlike?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
+                                                <span><a title="Unlike" onclick="return confirm('Do you want to unlike the product?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
                                             @else
                                                 <span><a title="Like" href="{{ route('home.favorite', $item->id) }}"><i class="far fa-heart"></i></a></span>
                                             @endif
-                                        </div>
-                                    @endif
+
+                                            <a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a>
+                                        @else
+                                            <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Please log in to add products to cart')"><i class="fa fa-shopping-cart"></i></a>
+                                        @endif
+                                    </div>
                                 </div>
                                 <div class="product-shape">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 401 314" preserveAspectRatio="none">
@@ -178,15 +186,19 @@
                                     <div class="product-info">
                                         <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
                                         <p>{!! $item->description !!}</p>
-                                        @if (auth('cus')->check())
-                                            <div class="favorite-action">
+                                        <div class="favorite-action">
+                                            @if (auth('cus')->check())
                                                 @if ($item->favorited)
-                                                    <span><a title="Unlike" onclick="return confirm('Do you want to unlike?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
+                                                    <span><a title="Unlike" onclick="return confirm('Do you want to unlike the product?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
                                                 @else
                                                     <span><a title="Like" href="{{ route('home.favorite', $item->id) }}"><i class="far fa-heart"></i></a></span>
                                                 @endif
-                                            </div>
-                                        @endif
+
+                                                <a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a>
+                                            @else
+                                                <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Please log in to add products to cart')"><i class="fa fa-shopping-cart"></i></a>
+                                            @endif
+                                        </div>
                                     </div>
                                     <div class="product-price">
                                         @if ($item->sale_price > 0)

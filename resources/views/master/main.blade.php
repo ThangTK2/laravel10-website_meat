@@ -112,7 +112,7 @@
                                             <li ><a href="{{ route('home.about') }}">ABOUT US</a></li>
                                             <li class="menu-item-has-children"><a href="#">PRODUCTS</a>
                                                 <ul class="sub-menu">
-                                                    @foreach ($cats_home as $item)
+                                                    @foreach ($cats_home as $item)  {{-- cats_home: bên AppServiceProvider.php --}}
                                                         <li><a href="{{ route('home.category', $item->id) }}">{{ $item->name }}</a></li>
                                                     @endforeach
                                                 </ul>
@@ -139,9 +139,9 @@
                                                 <a href="#"><i class="flaticon-search"></i></a>
                                             </li>
                                             <li class="header-shop-cart">
-                                                <a href="#">
+                                                <a href="{{ route('cart.index') }}">
                                                     <i class="flaticon-shopping-basket"></i>
-                                                    <span>0</span>
+                                                    <span>{{ $carts->sum('quantity') }}</span>  {{-- carts: bên AppServiceProvider.php --}}
                                                 </a>
                                             </li>
                                             <li class="header-btn"><a href="tel:0123456789" class="btn">0 929 029 035</a></li>

@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +50,16 @@ Route::group(['prefix' => '/account'], function () {
 
     Route::get('/reset-password/{token}', [AccountController::class, 'reset_password'])->name('account.reset_password');
     Route::post('/reset-password/{token}', [AccountController::class, 'check_reset_password'])->name('account.check_reset_password');
+});
+
+
+Route::group(['prefix' => '/cart', 'middleware' => 'customer'], function () {
+    Route::get('/', [CartController::class, 'index'])->name('cart.index');
+    Route::get('/add/{product}', [CartController::class, 'add'])->name('cart.add');
+    Route::get('/delete/{product}', [CartController::class, 'delete'])->name('cart.delete');
+    Route::get('/update/{product}', [CartController::class, 'update'])->name('cart.update');
+    Route::get('/clear', [CartController::class, 'clear'])->name('cart.clear');
+
 });
 
 // ADMIN
