@@ -69,6 +69,7 @@
                                         @if ( auth('cus')->check())
                                             <li><a href="{{ route('account.profile') }}">Hi, {{ auth('cus')->user()->name }}</a></li>
                                             <li><a href="{{ route('account.favorite') }}">Product Favorite</a></li>
+                                            <li><a href="{{ route('order.history') }}">My Orders</a></li>
                                             <li><a href="{{ route('account.change_password') }}">Change Password</a></li>
                                             <li><a onclick="return confirm('Do you want to logout?')" href="{{ route('account.logout') }}">Logout</a></li>
                                         @else
@@ -109,7 +110,6 @@
                                                     <li><a href="index-4.html">Home Three</a></li>
                                                 </ul> --}}
                                             </li>
-                                            <li ><a href="{{ route('home.about') }}">ABOUT US</a></li>
                                             <li class="menu-item-has-children"><a href="#">PRODUCTS</a>
                                                 <ul class="sub-menu">
                                                     @foreach ($cats_home as $item)  {{-- cats_home: bên AppServiceProvider.php --}}
@@ -117,6 +117,7 @@
                                                     @endforeach
                                                 </ul>
                                             </li>
+                                            <li ><a href="{{ route('home.about') }}">ABOUT US</a></li>
                                             <li class="menu-item-has-children"><a href="#">BLOG</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="blog.html">Our Blog</a></li>

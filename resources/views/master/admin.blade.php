@@ -115,8 +115,10 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="admin_assets/index.html"><i class="fa fa-circle-o"></i> List</a></li>
-              <li><a href="admin_assets/index2.html"><i class="fa fa-circle-o"></i> static</a></li>
+              <li><a href="{{ route('order.index') }}"><i class="fa fa-circle-o"></i> Khách hàng đã xác nhận</a></li>
+              <li><a href="{{ route('order.index') }}?status=0"><i class="fa fa-circle-o"></i> Khách hàng chưa xác nhận</a></li>
+              <li><a href="{{ route('order.index') }}?status=2"><i class="fa fa-circle-o"></i> Đã giao hàng</a></li>
+              <li><a href="{{ route('order.index') }}?status=3"><i class="fa fa-circle-o"></i> Đã hủy</a></li>
             </ul>
         </li>
 

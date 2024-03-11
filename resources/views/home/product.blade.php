@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="shop-details-content">
-                            <h2 class="title">Necessary Human Body</h2>
+                            <h2 class="title">{{ $product->name }}</h2>
                             <div class="review-wrap">
                                 <div class="rating">
                                     <i class="fas fa-star"></i>
@@ -66,10 +66,10 @@
                                 </div>
                                 <span>(4 customer reviews)</span>
                             </div>
-                            <h3 class="price">$8.50 <span>- In stock</span></h3>
+                            <h3 class="price"> <u style="text-decoration: line-through; padding-right: 8px">${{ $product->price }}</u> / ${{ $product->sale_price }}</h3>
                             <div class="product-count-wrap">
                                 <span class="title">Hurry Up! Sale ends in:</span>
-                                <div class="coming-time" data-countdown="2024/7/6"></div>
+                                <div class="coming-time" data-countdown="2024/4/20"></div>
                             </div>
                             <p>Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh</p>
                             <div class="shop-details-qty">
@@ -83,23 +83,10 @@
                                     <button class="purchase-btn">PURCHASE</button>
                                 </div>
                             </div>
-                            <a href="#" class="buy-btn">Buy it now</a>
+                            <a href="{{ route('cart.index') }}" class="buy-btn">Buy it now</a>
                             <div class="payment-method-wrap">
                                 <span class="title">GUARANTEED SAFE CHECKOUT:</span>
-                                <img src="uploads/product/payment_method.png" alt="">
-                            </div>
-                            <div class="shop-add-Wishlist">
-                                <a href="#"><i class="far fa-heart"></i>Add to Wishlist</a>
-                            </div>
-                            <div class="sd-sku">
-                                <span class="title">SKU:</span>
-                                <a href="#">002</a>
-                            </div>
-                            <div class="sd-category">
-                                <span class="title">CATEGORY:</span>
-                                <ul class="list-wrap">
-                                    <li><a href="#">lipstick</a></li>
-                                </ul>
+                                <img src="uploads/product/payment_method.png" alt="Image">
                             </div>
                         </div>
                     </div>
@@ -156,131 +143,52 @@
                 </div>
                 <div class="product-item-wrap-three">
                     <div class="row justify-content-center rp-active">
-                        <div class="col-xl-3">
-                            <div class="product-item-three inner-product-item">
-                                <div class="product-thumb-three">
-                                    <a href="shop-details.html"><img src="uploads/product/inner_product01.png" alt=""></a>
-                                    <span class="batch">New<i class="fas fa-star"></i></span>
-                                </div>
-                                <div class="product-content-three">
-                                    <a href="shop.html" class="tag">organic</a>
-                                    <h2 class="title"><a href="shop-details.html">roast chicken</a></h2>
-                                    <h2 class="price">$4.99</h2>
-                                    <div class="product-cart-wrap">
-                                        <form action="#">
-                                            <div class="cart-plus-minus">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </form>
+                        @foreach ($feature_products as $item)
+                            <div class="col-xl-3">
+                                <div class="product-item-three inner-product-item">
+                                    <div class="product-thumb-three">
+                                        <a href="{{ route('home.product', $item->id) }}"><img src="uploads/product/{{ $item->image }}" alt="Image"></a>
+                                        <span class="batch">New<i class="fas fa-star"></i></span>
+                                    </div>
+                                    <div class="product-content-three">
+                                        <a href="shop.html" class="tag">organic</a>
+                                        <h2 class="title"><a href="shop-details.html">{{ $item->name }}</a></h2>
+                                        @if ($item->sale_price > 0)
+                                            <span><s>${{ $item->price }}</s></span>
+                                            <span class="price">${{ $item->sale_price }}</span>
+                                        @else
+                                            <span class="price">${{ $item->price }}</span>
+                                        @endif
+
+                                        <div class="favorite-action">
+                                            @if (auth('cus')->check())
+                                                @if ($item->favorited)
+                                                    <span><a title="Unlike" onclick="return confirm('Do you want to unlike the product?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
+                                                @else
+                                                    <span><a title="Like" href="{{ route('home.favorite', $item->id) }}"><i class="far fa-heart"></i></a></span>
+                                                @endif
+
+                                                <a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a>
+                                            @else
+                                                <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Please log in to add products to cart')"><i class="fa fa-shopping-cart"></i></a>
+                                            @endif
+                                        </div>
+                                        <div class="product-cart-wrap">
+                                            <form action="#">
+                                                <div class="cart-plus-minus">
+                                                    <input type="text" value="1">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="product-shape-two">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 303 445" preserveAspectRatio="none">
+                                            <path d="M319,3802H602c5.523,0,10,5.24,10,11.71l-10,421.58c0,6.47-4.477,11.71-10,11.71H329c-5.523,0-10-5.24-10-11.71l-10-421.58C309,3807.24,313.477,3802,319,3802Z" transform="translate(-309 -3802)" />
+                                        </svg>
                                     </div>
                                 </div>
-                                <div class="product-shape-two">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 303 445" preserveAspectRatio="none">
-                                        <path d="M319,3802H602c5.523,0,10,5.24,10,11.71l-10,421.58c0,6.47-4.477,11.71-10,11.71H329c-5.523,0-10-5.24-10-11.71l-10-421.58C309,3807.24,313.477,3802,319,3802Z" transform="translate(-309 -3802)" />
-                                    </svg>
-                                </div>
                             </div>
-                        </div>
-                        <div class="col-xl-3">
-                            <div class="product-item-three inner-product-item">
-                                <div class="product-thumb-three">
-                                    <a href="shop-details.html"><img src="uploads/product/inner_product02.png" alt=""></a>
-                                    <span class="batch">New<i class="fas fa-star"></i></span>
-                                </div>
-                                <div class="product-content-three">
-                                    <a href="shop.html" class="tag">organic</a>
-                                    <h2 class="title"><a href="shop-details.html">Venison meat</a></h2>
-                                    <h2 class="price">$4.99</h2>
-                                    <div class="product-cart-wrap">
-                                        <form action="#">
-                                            <div class="cart-plus-minus">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="product-shape-two">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 303 445" preserveAspectRatio="none">
-                                        <path d="M319,3802H602c5.523,0,10,5.24,10,11.71l-10,421.58c0,6.47-4.477,11.71-10,11.71H329c-5.523,0-10-5.24-10-11.71l-10-421.58C309,3807.24,313.477,3802,319,3802Z" transform="translate(-309 -3802)" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3">
-                            <div class="product-item-three inner-product-item">
-                                <div class="product-thumb-three">
-                                    <a href="shop-details.html"><img src="uploads/product/inner_product03.png" alt=""></a>
-                                    <span class="batch">New<i class="fas fa-star"></i></span>
-                                </div>
-                                <div class="product-content-three">
-                                    <a href="shop.html" class="tag">organic</a>
-                                    <h2 class="title"><a href="shop-details.html">processed meat</a></h2>
-                                    <h2 class="price">$4.99</h2>
-                                    <div class="product-cart-wrap">
-                                        <form action="#">
-                                            <div class="cart-plus-minus">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="product-shape-two">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 303 445" preserveAspectRatio="none">
-                                        <path d="M319,3802H602c5.523,0,10,5.24,10,11.71l-10,421.58c0,6.47-4.477,11.71-10,11.71H329c-5.523,0-10-5.24-10-11.71l-10-421.58C309,3807.24,313.477,3802,319,3802Z" transform="translate(-309 -3802)" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3">
-                            <div class="product-item-three inner-product-item">
-                                <div class="product-thumb-three">
-                                    <a href="shop-details.html"><img src="uploads/product/inner_product04.png" alt=""></a>
-                                    <span class="batch">New<i class="fas fa-star"></i></span>
-                                </div>
-                                <div class="product-content-three">
-                                    <a href="shop.html" class="tag">organic</a>
-                                    <h2 class="title"><a href="shop-details.html">roast chicken</a></h2>
-                                    <h2 class="price">$4.99</h2>
-                                    <div class="product-cart-wrap">
-                                        <form action="#">
-                                            <div class="cart-plus-minus">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="product-shape-two">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 303 445" preserveAspectRatio="none">
-                                        <path d="M319,3802H602c5.523,0,10,5.24,10,11.71l-10,421.58c0,6.47-4.477,11.71-10,11.71H329c-5.523,0-10-5.24-10-11.71l-10-421.58C309,3807.24,313.477,3802,319,3802Z" transform="translate(-309 -3802)" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3">
-                            <div class="product-item-three inner-product-item">
-                                <div class="product-thumb-three">
-                                    <a href="shop-details.html"><img src="uploads/product/inner_product05.png" alt=""></a>
-                                    <span class="batch">New<i class="fas fa-star"></i></span>
-                                </div>
-                                <div class="product-content-three">
-                                    <a href="shop.html" class="tag">organic</a>
-                                    <h2 class="title"><a href="shop-details.html">Venison meat</a></h2>
-                                    <h2 class="price">$4.99</h2>
-                                    <div class="product-cart-wrap">
-                                        <form action="#">
-                                            <div class="cart-plus-minus">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="product-shape-two">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 303 445" preserveAspectRatio="none">
-                                        <path d="M319,3802H602c5.523,0,10,5.24,10,11.71l-10,421.58c0,6.47-4.477,11.71-10,11.71H329c-5.523,0-10-5.24-10-11.71l-10-421.58C309,3807.24,313.477,3802,319,3802Z" transform="translate(-309 -3802)" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

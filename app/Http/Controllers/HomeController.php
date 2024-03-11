@@ -34,7 +34,8 @@ class HomeController extends Controller
 
     public function product(Product $product) {  //$product: là tham số route trên đường dẫn bên web.php(line 24)
         $products = Product::where('category_id', $product->category_id)->limit(12)->get(); //sản phẩm liên quan(related)
-        return view('home.product', compact('product', 'products'));
+        $feature_products = Product::inRandomOrder()->limit(4)->get();
+        return view('home.product', compact('product', 'products', 'feature_products'));
     }
 
     public function favorite($product_id) {   //$product_id: là tham số route trên đường dẫn bên web.php(line 25) ta đặt tên lại product_id

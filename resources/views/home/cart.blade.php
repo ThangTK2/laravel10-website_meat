@@ -27,7 +27,7 @@
         <!-- contact-area -->
         <section class="contact-area">
             <div class="container" style="padding: 125px 0">
-                <table class="table border">
+                <table class="table table-striped table-inverse table-responsive table-bordered text-center">
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -44,10 +44,10 @@
                             <tr>
                                 <td scope="row">{{ $loop->index + 1 }}</td>
                                 <td>{{ $item->prod->name }}</td>
-                                <td>{{ $item->price }}</td>
+                                <td>${{ $item->price }}</td>
                                 <td>
                                     <form action="{{ route('cart.update', $item->product_id) }}" method="get">
-                                        <input type="number" name="quantity" value="{{ $item->quantity }}" style="width: 50px; text-align: center">
+                                        <input type="number" min="1" name="quantity" value="{{ $item->quantity }}" style="width: 50px; text-align: center">
                                         <button><i class="fa fa-save"></i></button>
                                     </form>
                                 </td>
@@ -59,13 +59,14 @@
                             </tr>
                         @endforeach
                     </tbody>
+                    {{-- <tr>{{  }}</tr> --}}
                 </table>
                 <br>
                 <div class="text-center">
-                    <a href="" class="btn"><i class="fa fa-arrow-left"></i> Continue Shopping</a>
+                    <a href="" class="btn"><i class="fa fa-arrow-left" style="padding-right: 12px"></i>Continue Shopping</a>
                     @if ($carts->count())
-                        <a href="{{ route('cart.clear') }}" class="btn" onclick="return confirm('Do you want to remove all product from your cart?')"><i class="fa fa-trash"></i>Clear All Carts</a>
-                        <a href="" class="btn">Payment <i class="fa fa-arrow-right"></i></a>
+                        <a href="{{ route('cart.clear') }}" class="btn" onclick="return confirm('Do you want to remove all product from your cart?')"><i style="padding-right: 12px" class="fa fa-trash"></i>Clear All Carts</a>
+                        <a href="{{ route('order.checkout') }}" class="btn">Place Order <i style="padding-left: 12px" class="fa fa-arrow-right"></i></a>
                     @endif
                 </div>
             </div>

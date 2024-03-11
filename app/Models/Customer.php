@@ -49,4 +49,13 @@ class Customer extends Authenticatable
     public function favorites() {
         return $this->hasMany(Favorite::class, 'customer_id', 'id'); //$this là model Customer
     }
+
+    public function carts() {
+        return $this->hasMany(Cart::class, 'customer_id', 'id');
+    }
+
+    public function orders() {
+        return $this->hasMany(Order::class, 'customer_id', 'id')->orderBy('id', 'desc');
+    }
 }
+

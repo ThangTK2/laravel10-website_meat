@@ -1,5 +1,5 @@
 @extends('master.main')
-@section('title', 'Your Product Favorite')
+@section('title', 'My Orders')
 @section('main')
     <!-- main-area -->
     <main>
@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">Your product favorite</h2>
+                            <h2 class="title">My Order</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Your product favorite</li>
+                                    <li class="breadcrumb-item active" aria-current="page">My Order</li>
                                 </ol>
                             </nav>
                         </div>
@@ -27,27 +27,35 @@
         <!-- contact-area -->
         <section class="contact-area">
             <div class="container" style="padding: 125px 0">
-                <table class="table table-striped table-inverse table-responsive table-bordered text-center">
+                <table class="table border table-striped table-inverse table-responsive table-bordered text-center">
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Image</th>
-                            <th>Date</th>
+                            <th>Order date</th>
+                            <th>Status</th>
+                            <th>Total price</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($favorites as $item) {{-- favorites: bên AccountController.php || prod: bên function Favorite.php --}}
+                        @foreach ($auth->orders as $item) {{-- auth: bên CheckoutController.php(60 line) || orders: bên function Customer.php --}}
                             <tr>
                                 <td scope="row">{{ $loop->index + 1 }}</td>
-                                <td>{{ $item->prod->name }}</td>
-                                <td><u style="text-decoration: line-through; padding-right: 6px">${{ $item->prod->price }}</u>/ ${{ $item->prod->sale_price }}</td>
-                                <td><img src="uploads/product/{{ $item->prod->image }}" width="50" alt="Image"></td>
                                 <td>{{ $item->created_at->format('d/m/Y') }}</td>
                                 <td>
-                                    <span><a title="Unlike" onclick="return confirm('Do you want to unlike the product?')" href="{{ route('home.favorite', $item->product_id) }}"><i class="fas fa-heart"></i></a></span>
+                                    @if ($item->status == 0)
+                                        <span>You have not received your order. Please check your email for confirmation</span>
+                                    @elseif($item->status == 1)
+                                        <span>Your order has been confirmed</span>
+                                    @elseif($item->status == 2)
+                                        <span>Your order has been paid</span>
+                                    @else
+                                        <span>Your order has been canceled</span>
+                                    @endif
+                                </td>
+                                <td>${{ number_format($item->totalPrice) }}</td>  {{--  totalPrice ben Order.php --}}
+                                <td>
+                                    <a href="{{ route('order.detail', $item->id) }}" class="btn btn-primary">Detail</a>
                                 </td>
                             </tr>
                         @endforeach

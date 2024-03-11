@@ -13,7 +13,7 @@
 
 <br>
 
-<table class="table table-striped table-inverse table-responsive">
+<table class="table table-striped table-inverse table-responsive table-bordered">
     <thead class="thead-inverse">
         <tr>
             <th>#</th>
