@@ -50,9 +50,9 @@ class ProductController extends Controller
                     ]);
                 }
             }
-            return redirect()->route('product.index')->with('success', 'Create new product successfully');
+            return redirect()->route('product.index')->with('success', 'Tạo sản phẩm mới thành công');
         };
-        return redirect()->back()->with('error', 'Create new product failed');
+        return redirect()->back()->with('error', 'Tạo sản phẩm mới không thành công');
     }
 
     /**
@@ -116,9 +116,9 @@ class ProductController extends Controller
                     ]);
                 }
             }
-            return redirect()->route('product.index')->with('success', 'Update product successfully');
+            return redirect()->route('product.index')->with('success', 'Cập nhật sản phẩm thành công');
         };
-        return redirect()->back()->with('error', 'Update product failed');
+        return redirect()->back()->with('error', 'Cập nhật sản phẩm không thành công');
     }
 
     /**
@@ -146,7 +146,7 @@ class ProductController extends Controller
                 if (file_exists($image_path)) {
                     unlink($image_path);
                 }
-                return redirect()->route('product.index')->with('success', 'Delete product successfully');
+                return redirect()->route('product.index')->with('success', 'Xóa sản phẩm thành công');
             };
         }else{
             if ($product->delete()) {
@@ -154,10 +154,10 @@ class ProductController extends Controller
                 if (file_exists($image_path)) {
                     unlink($image_path);
                 }
-                return redirect()->route('product.index')->with('success', 'Delete product successfully');
+                return redirect()->route('product.index')->with('success', 'Xóa sản phẩm thành công');
             };
         }
-        return redirect()->back()->with('error', 'Delete product failed');
+        return redirect()->back()->with('error', 'Xóa sản phẩm không thành công');
     }
 
     public function destroyImage(ProductImage $image) //$image là một đối tượng của lớp ProductImage
@@ -168,8 +168,8 @@ class ProductController extends Controller
             if (file_exists($image_path)) {
                 unlink($image_path);
             }
-            return redirect()->back()->with('success', 'Delete product image successfully');
+            return redirect()->back()->with('success', 'Xóa hình ảnh sản phẩm thành công');
         };
-        return redirect()->back()->with('error', 'Delete product image failed');
+        return redirect()->back()->with('error', 'Xóa hình ảnh sản phẩm không thành công');
     }
 }

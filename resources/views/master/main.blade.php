@@ -54,7 +54,7 @@
                                 <ul class="list-wrap">
                                     <li class="header-location">
                                         <i class="fas fa-map-marker-alt"></i>
-                                        Da Nang, Viet Nam
+                                        Đà Nẵng, Việt Nam
                                     </li>
                                     <li>
                                         <a href="mailto:info@example.com"><i class="fas fa-envelope"></i></a>
@@ -67,14 +67,14 @@
                                 <div class="header-top-menu">
                                     <ul class="list-wrap">
                                         @if ( auth('cus')->check())
-                                            <li><a href="{{ route('account.profile') }}">Hi, {{ auth('cus')->user()->name }}</a></li>
-                                            <li><a href="{{ route('account.favorite') }}">Product Favorite</a></li>
-                                            <li><a href="{{ route('order.history') }}">My Orders</a></li>
-                                            <li><a href="{{ route('account.change_password') }}">Change Password</a></li>
-                                            <li><a onclick="return confirm('Do you want to logout?')" href="{{ route('account.logout') }}">Logout</a></li>
+                                            <li><a href="{{ route('account.profile') }}">Chào, {{ auth('cus')->user()->name }}</a></li>
+                                            <li><a href="{{ route('account.favorite') }}">Sản phẩm yêu thích</a></li>
+                                            <li><a href="{{ route('order.history') }}">Đơn hàng</a></li>
+                                            <li><a href="{{ route('account.change_password') }}">Đổi mật khẩu</a></li>
+                                            <li><a onclick="return confirm('Bạn có muốn đăng xuất không?')" href="{{ route('account.logout') }}">Đăng xuất</a></li>
                                         @else
-                                            <li><a href="{{ route('account.login') }}">Login</a></li>
-                                            <li><a href="{{ route('account.register') }}">Register</a></li>
+                                            <li><a href="{{ route('account.login') }}">Đăng nhập</a></li>
+                                            <li><a href="{{ route('account.register') }}">Đăng ký</a></li>
                                         @endif
                                     </ul>
                                 </div>
@@ -103,21 +103,21 @@
                                     </div>
                                     <div class="navbar-wrap main-menu d-none d-lg-flex">
                                         <ul class="navigation">
-                                            <li class="active" class="menu-item-has-children"><a href="{{ route('home.index') }}">Home</a>
+                                            <li class="active" class="menu-item-has-children"><a href="{{ route('home.index') }}">Trang chủ</a>
                                                 {{-- <ul class="sub-menu">
                                                     <li><a href="index-2.html">Home One</a></li>
                                                     <li><a href="index-3.html">Home Two</a></li>
                                                     <li><a href="index-4.html">Home Three</a></li>
                                                 </ul> --}}
                                             </li>
-                                            <li class="menu-item-has-children"><a href="#">PRODUCTS</a>
+                                            <li class="menu-item-has-children"><a href="#">Sản phẩm</a>
                                                 <ul class="sub-menu">
                                                     @foreach ($cats_home as $item)  {{-- cats_home: bên AppServiceProvider.php --}}
                                                         <li><a href="{{ route('home.category', $item->id) }}">{{ $item->name }}</a></li>
                                                     @endforeach
                                                 </ul>
                                             </li>
-                                            <li ><a href="{{ route('home.about') }}">ABOUT US</a></li>
+                                            <li ><a href="{{ route('home.about') }}">Về chúng tôi</a></li>
                                             <li class="menu-item-has-children"><a href="#">BLOG</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="blog.html">Our Blog</a></li>
@@ -131,7 +131,7 @@
                                                     <li><a href="team-details.html">Team Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="contact.html">Liên hệ</a></li>
                                         </ul>
                                     </div>
                                     <div class="header-action d-none d-md-block">

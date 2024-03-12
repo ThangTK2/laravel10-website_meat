@@ -15,7 +15,7 @@
                             <div class="banner-content">
                                 <h1 class="title wow fadeInUp" data-wow-delay=".2s">{{ $topBanner->name }}</h1>
                                 <span class="sub-title wow fadeInUp" data-wow-delay=".4s">Butcher & Meat shop</span>
-                                <a href="{{ $topBanner->link }}" class="btn wow fadeInUp" data-wow-delay=".6s">order now</a>
+                                <a href="{{ $topBanner->link }}" class="btn wow fadeInUp" data-wow-delay=".6s">Mua ngay</a>
                             </div>
                             <div class="banner-img text-center wow fadeInUp" data-wow-delay=".8s">
                                 <img src="uploads/banner/banner_img.png" alt="">
@@ -40,26 +40,27 @@
                             <div class="col-lg-6">
                                 <div class="features-item tg-motion-effects">
                                     <div class="features-content">
-                                        <span> {{ $item->cat->name }}</span>
+                                        <span style="padding-bottom: 8px"> {{ $item->cat->name }}</span>
                                         <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
-                                        <p>{!! $item->description !!}</p>
-                                        @if ($item->sale_price > 0) {{-- nếu có khuyến mãi --}}
-                                            <span><s>${{ $item->price }}</s></span>
+                                        <div style="display: flex; align-items: center;">
+                                            @if ($item->sale_price > 0) {{-- nếu có khuyến mãi --}}
+                                            <div style="color: #7F6F6C; padding-right: 8px"><span><s>${{ $item->price }}</s></span></div>
                                             <span class="price">${{ $item->sale_price }}</span>
-                                        @else
-                                            <span class="price">${{ $item->price }}</span>
-                                        @endif
+                                            @else
+                                                <span class="price">${{ $item->price }}</span>
+                                            @endif
+                                        </div>
 
                                         {{-- auth('cus') bên config.auth  ||  favorited: bên Product.php line 30 --}}
-                                        <div class="favorite-action">
+                                        <div class="favorite-action" style="display: flex; align-items: center;">
                                             @if (auth('cus')->check())
                                                 @if ($item->favorited)
-                                                    <span><a title="Unlike" onclick="return confirm('Do you want to unlike the product?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
+                                                    <span><a title="Unlike" onclick="return confirm('Bạn có muốn bỏ thích sản phẩm này?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
                                                 @else
                                                     <span><a title="Like" href="{{ route('home.favorite', $item->id) }}"><i class="far fa-heart"></i></a></span>
                                                 @endif
 
-                                                <a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a>
+                                                <div style="padding-left: 10px"><a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a></div>
                                             @else
                                                 <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Please log in to add products to cart')"><i class="fa fa-shopping-cart"></i></a>
                                             @endif
@@ -89,8 +90,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title text-center mb-60">
-                            <span class="sub-title">Organic Shop</span>
-                            <h2 class="title">Sale Products</h2>
+                            <span class="sub-title">Sản phẩm bán chạy</span>
                             <div class="title-shape" data-background="uploads/images/title_shape.png"></div>
                         </div>
                     </div>
@@ -105,23 +105,24 @@
                                 <div class="product-content">
                                     <div class="line" data-background="uploads/images/line.png"></div>
                                     <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
-                                    <p>{!! $item->description !!}</p>
-                                    @if ($item->sale_price > 0)
-                                        <span><s>${{ $item->price }}</s></span>
-                                        <span class="price">${{ $item->sale_price }}</span>
-                                    @else
-                                        <span class="price">${{ $item->price }}</span>
-                                    @endif
+                                    <div style="display: flex; align-items: center; justify-content: center">
+                                        @if ($item->sale_price > 0)
+                                            <div style="color: #7F6F6C; padding-right: 8px"><span><s>${{ $item->price }}</s></span></div>
+                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">${{ $item->sale_price }}</span>
+                                        @else
+                                            <span class="price">${{ $item->price }}</span>
+                                        @endif
+                                    </div>
 
-                                    <div class="favorite-action">
+                                    <div class="favorite-action" style="display: flex; align-items: center; justify-content: center">
                                         @if (auth('cus')->check())
                                             @if ($item->favorited)
-                                                <span><a title="Unlike" onclick="return confirm('Do you want to unlike the product?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
+                                                <span><a title="Unlike" onclick="return confirm('Bạn có muốn bỏ thích sản phẩm này?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
                                             @else
                                                 <span><a title="Like" href="{{ route('home.favorite', $item->id) }}"><i class="far fa-heart"></i></a></span>
                                             @endif
 
-                                            <a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a>
+                                            <div style="padding-left: 10px"><a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a></div>
                                         @else
                                             <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Please log in to add products to cart')"><i class="fa fa-shopping-cart"></i></a>
                                         @endif
@@ -169,8 +170,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title text-center mb-70">
-                            <span class="sub-title">Organic Shop</span>
-                            <h2 class="title">Feature Products</h2>
+                            <span class="sub-title">Sản phẩm nổi bật</span>
                             <div class="title-shape" data-background="uploads/images/title_shape.png"></div>
                         </div>
                     </div>
@@ -185,16 +185,15 @@
                                 <div class="product-content-two">
                                     <div class="product-info">
                                         <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
-                                        <p>{!! $item->description !!}</p>
-                                        <div class="favorite-action">
+                                        <div class="favorite-action" style="display: flex; align-items: center;">
                                             @if (auth('cus')->check())
                                                 @if ($item->favorited)
-                                                    <span><a title="Unlike" onclick="return confirm('Do you want to unlike the product?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
+                                                    <span><a title="Unlike" onclick="return confirm('Bạn có muốn bỏ thích sản phẩm này?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
                                                 @else
                                                     <span><a title="Like" href="{{ route('home.favorite', $item->id) }}"><i class="far fa-heart"></i></a></span>
                                                 @endif
 
-                                                <a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a>
+                                                <div style="padding-left: 10px"><a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a></div>
                                             @else
                                                 <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Please log in to add products to cart')"><i class="fa fa-shopping-cart"></i></a>
                                             @endif
@@ -203,7 +202,7 @@
                                     <div class="product-price">
                                         @if ($item->sale_price > 0)
                                             <span><s>${{ $item->price }}</s></span>
-                                            <span class="price">${{ $item->sale_price }}</span>
+                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">${{ $item->sale_price }}</span>
                                         @else
                                             <span class="price">${{ $item->price }}</span>
                                         @endif
@@ -214,14 +213,14 @@
                     @endforeach
                 </div>
                 <div class="shop-now-btn text-center mt-40">
-                    <a href="shop.html" class="btn">Shop Now</a>
+                    <a href="shop.html" class="btn">Mua ngay</a>
                 </div>
             </div>
         </section>
         <!-- product-area-end -->
 
         <!-- team-area -->
-        <section class="team-area team-bg" data-background="uploads/bg/team_bg.jpg">
+        {{-- <section class="team-area team-bg" data-background="uploads/bg/team_bg.jpg">
             <div class="container custom-container-two">
                 <div class="row align-items-center">
                     <div class="col-lg-4">
@@ -231,7 +230,7 @@
                                 <h2 class="title">Our CREATIVE Team</h2>
                             </div>
                             <p>BUY SMOKEY GRILLED meats and CHICKEN <span>GET catling</span>  FREE</p>
-                            <a href="shop.html" class="btn">Shop Now</a>
+                            <a href="shop.html" class="btn">Mua ngay</a>
                         </div>
                     </div>
                     <div class="col-lg-8">
@@ -281,11 +280,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- team-area-end -->
 
         <!-- faq-area -->
-        <section class="faq-area tg-motion-effects faq-bg" data-background="uploads/bg/faq_bg.jpg">
+        {{-- <section class="faq-area tg-motion-effects faq-bg" data-background="uploads/bg/faq_bg.jpg">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-6 col-md-10">
@@ -349,7 +348,7 @@
                 <img src="uploads/images/faq_shape01.png" alt="" class="tg-motion-effects3">
                 <img src="uploads/images/faq_shape02.png" alt="" class="tg-motion-effects2">
             </div>
-        </section>
+        </section> --}}
         <!-- faq-area-end -->
 
         <!-- cta-area -->
@@ -360,10 +359,10 @@
                     <div class="col-lg-8">
                         <div class="cta-content">
                             <img src="uploads/icons/cta_icon.png" alt="">
-                            <h2 class="title">Get a Free Quote</h2>
+                            <h2 class="title">Bemet</h2>
                             <div class="cta-bottom">
-                                <a href="shop.html" class="btn">buy now</a>
-                                <a href="tel:0123456789" class="btn call-btn"><i class="fas fa-headphones-alt"></i>make a call</a>
+                                <a href="shop.html" class="btn">Mua ngay</a>
+                                <a href="tel:0929029035" class="btn call-btn"><i class="fas fa-headphones-alt"></i>Gọi ngay</a>
                             </div>
                         </div>
                     </div>
@@ -373,7 +372,7 @@
         <!-- cta-area-end -->
 
         <!-- blog-post-area -->
-        <section class="blog-post-area">
+        {{-- <section class="blog-post-area">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -450,7 +449,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- blog-post-area-end -->
 
     </main>

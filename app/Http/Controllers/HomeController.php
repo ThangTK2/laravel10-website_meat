@@ -46,10 +46,10 @@ class HomeController extends Controller
         $favorited = Favorite::where(['product_id'=> $product_id, 'customer_id'=> auth('cus')->id()])->first();
         if ($favorited) {
             $favorited->delete();
-            return redirect()->back()->with('success', 'You already unlike the product successfully');
+            return redirect()->back()->with('success', 'Bạn đã không thích sản phẩm thành công');
         }else{
             Favorite::create($data);
-            return redirect()->back()->with('success', 'You already like the product successfully');
+            return redirect()->back()->with('success', 'Bạn đã thích sản phẩm thành công');
         }
     }
 }

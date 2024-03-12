@@ -27,13 +27,13 @@ class AdminController extends Controller
         $data = $request->only('email', 'password');
         $check = auth()->attempt($data);  //attempt($data): xem thông tin đăng nhập có đúng với db không.
         if ($check) {
-            return redirect()->route('admin.index')->with('success', 'Welcome to admin page');
+            return redirect()->route('admin.index')->with('success', 'Chào mừng bạn đến với trang admin');
         }
-        return redirect()->back()->with('error', 'Incorrect email or password please try again');
+        return redirect()->back()->with('error', 'Email hoặc mật khẩu không chính xác, vui lòng thử lại');
     }
 
     public function logout(){
         auth()->logout();
-        return redirect()->route('admin.login')->with('success', 'You logged in successfully');
+        return redirect()->route('admin.login')->with('success', 'Bạn đã đăng xuất thành công');
     }
 }

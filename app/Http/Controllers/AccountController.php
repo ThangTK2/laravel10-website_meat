@@ -29,16 +29,16 @@ class AccountController extends Controller
         if ($check) {
             if (auth('cus')->user()->email_verified_at == null) {  //auth()->user(): để lấy thông tin về người dùng hiện tại đang đăng nhập
                 auth('cus')->logout();
-                return redirect()->back()->with('error', 'You can verified your email to login');
+                return redirect()->back()->with('error', 'Bạn cần xác minh email của mình để đăng nhập');
             }
-            return redirect()->route('home.index')->with('success', 'Welcome to our website');
+            return redirect()->route('home.index')->with('success', 'Chào mừng bạn đến với trang web của chúng tôi');
         }
-        return redirect()->back()->with('error', 'Incorrect email or password please try again');
+        return redirect()->back()->with('error', 'Email hoặc mật khẩu không chính xác. Vui lòng thử lại');
     }
 
     public function logout(){
         auth('cus')->logout();
-        return redirect()->route('account.login')->with('success', 'You logged in successfully');
+        return redirect()->route('account.login')->with('success', 'Bạn đã đăng xuất thành công');
     }
 
     public function register(){
@@ -51,15 +51,15 @@ class AccountController extends Controller
 
         if($acc = Customer::create($data)){
             Mail::to($acc->email)->send(new VerifyAccount($acc));
-            return redirect()->route('account.login')->with('success', 'Register successfully, You can verified your email to login');
+            return redirect()->route('account.login')->with('success', 'Đăng ký thành công. Bạn cần xác minh email của mình để đăng nhập');
         }
-        return redirect()->back()->with('error', 'Register failed!!!');
+        return redirect()->back()->with('error', 'Đăng ký không thành công');
     }
 
     public function verify($email){
         $acc = Customer::where('email', $email)->whereNULL('email_verified_at')->firstOrFail(); //firstOrFail: khi ta nhấn verify email lần đầu thì sẽ được, lần thứ 2 trở đi sẽ không được(lỗi 404)(để tránh tình trạng spam email khi đã verify rồi)
         Customer::where('email', $email)->update(['email_verified_at' => date('Y-m-d')]);
-        return redirect()->route('account.login')->with('success', 'Verify email successfully');
+        return redirect()->route('account.login')->with('success', 'Xác minh email thành công');
     }
 
     public function change_password(){
@@ -72,9 +72,9 @@ class AccountController extends Controller
         $check = $auth->update($data);
         if ($check){
             auth('cus')->logout();
-            return redirect()->back()->with('success', 'Change password successfully');
+            return redirect()->back()->with('success', 'Thay đổi mật khẩu thành công');
         }
-        return redirect()->back()->with('error', 'Change password failed');
+        return redirect()->back()->with('error', 'Thay đổi mật khẩu không thành công');
     }
 
     public function forgot_password(){
@@ -90,9 +90,9 @@ class AccountController extends Controller
         ];
         if(CustomerResetToken::create($tokenData)){
             Mail::to($request->email)->send(new ForgotPassword($customer, $token));
-            return redirect()->route('account.login')->with('success', 'Send email successfully, please check your email to reset your password');
+            return redirect()->route('account.login')->with('success', 'Gửi email thành công, vui lòng kiểm tra email của bạn để đặt lại mật khẩu');
         }
-        return redirect()->back()->with('error', 'Send email failed');
+        return redirect()->back()->with('error', 'Gửi email không thành công');
     }
 
     public function profile(){
@@ -105,9 +105,9 @@ class AccountController extends Controller
         $data = $request->only('name', 'email', 'phone', 'address', 'gender');
         $check = $auth->update($data);
         if ($check){
-            return redirect()->back()->with('success', 'Update profile successfully');
+            return redirect()->back()->with('success', 'Cập nhật hồ sơ thành công');
         }
-        return redirect()->back()->with('error', 'Update profile failed');
+        return redirect()->back()->with('error', 'Cập nhật hồ sơ không thành công');
     }
 
     public function reset_password($token){
@@ -124,9 +124,9 @@ class AccountController extends Controller
         ];
         $check = $customer->update($data);
         if ($check){
-            return redirect()->route('account.login')->with('success', 'Reset password successfully');
+            return redirect()->route('account.login')->with('success', 'Đặt lại mật khẩu thành công');
         }
-        return redirect()->back()->with('error', 'Reset password failed');
+        return redirect()->back()->with('error', 'Đặt lại mật khẩu không thành công');
     }
 
     public function favorite() {

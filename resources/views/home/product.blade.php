@@ -56,22 +56,12 @@
                     <div class="col-lg-6">
                         <div class="shop-details-content">
                             <h2 class="title">{{ $product->name }}</h2>
-                            <div class="review-wrap">
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <span>(4 customer reviews)</span>
-                            </div>
                             <h3 class="price"> <u style="text-decoration: line-through; padding-right: 8px">${{ $product->price }}</u> / ${{ $product->sale_price }}</h3>
                             <div class="product-count-wrap">
                                 <span class="title">Hurry Up! Sale ends in:</span>
                                 <div class="coming-time" data-countdown="2024/4/20"></div>
                             </div>
-                            <p>Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh</p>
+                            <p>Thịt cung cấp thịt tươi có hình dáng đẹp và thịt hữu cơ là động vật tốt.</p>
                             <div class="shop-details-qty">
                                 <span class="title">Quantity :</span>
                                 <div class="shop-details-qty-inner">
@@ -80,10 +70,10 @@
                                             <input type="text" value="1">
                                         </div>
                                     </form>
-                                    <button class="purchase-btn">PURCHASE</button>
+                                    <button class="purchase-btn">Mua</button>
                                 </div>
                             </div>
-                            <a href="{{ route('cart.index') }}" class="buy-btn">Buy it now</a>
+                            <a href="{{ route('cart.index') }}" class="buy-btn">MUA ngay</a>
                             <div class="payment-method-wrap">
                                 <span class="title">GUARANTEED SAFE CHECKOUT:</span>
                                 <img src="uploads/product/payment_method.png" alt="Image">
@@ -163,7 +153,7 @@
                                         <div class="favorite-action">
                                             @if (auth('cus')->check())
                                                 @if ($item->favorited)
-                                                    <span><a title="Unlike" onclick="return confirm('Do you want to unlike the product?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
+                                                    <span><a title="Unlike" onclick="return confirm('Bạn có muốn bỏ thích sản phẩm này?')" href="{{ route('home.favorite', $item->id) }}"><i class="fas fa-heart"></i></a></span>
                                                 @else
                                                     <span><a title="Like" href="{{ route('home.favorite', $item->id) }}"><i class="far fa-heart"></i></a></span>
                                                 @endif

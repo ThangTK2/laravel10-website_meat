@@ -39,9 +39,9 @@ class CheckoutController extends Controller
             $order->token = $token;
             $order->save();
             Mail::to($auth->email)->send(new OrderEmail($order, $token));
-            return redirect()->route('home.index')->with('success', 'Order checkout successfully. Please check your email to verify your order.');
+            return redirect()->route('home.index')->with('success', 'Đặt hàng thành công. Vui lòng kiểm tra email của bạn để xác minh đơn đặt hàng của bạn.');
         }
-        return redirect()->route('home.index')->with('error', 'Order checkout unsuccessfully');
+        return redirect()->route('home.index')->with('error', 'Đặt hàng không thành công');
     }
 
     public function verify($token){ //$token wec.php(line 69)
@@ -50,7 +50,7 @@ class CheckoutController extends Controller
             $order->token = null;
             $order->status = 1;
             $order->save();
-            return redirect()->route('home.index')->with('success', 'Order verify successfully. You have successfully placed your order <3');
+            return redirect()->route('home.index')->with('success', 'Xác minh đơn hàng thành công. Bạn đã đặt hàng thành công <3');
         }
 
         return abort(404);

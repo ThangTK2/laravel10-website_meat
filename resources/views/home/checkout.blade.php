@@ -1,5 +1,5 @@
 @extends('master.main')
-@section('title', 'Check Out')
+@section('title', 'Thanh Toán')
 @section('main')
     <!-- main-area -->
     <main>
@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">Check Out</h2>
+                            <h2 class="title">Thanh Toán</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
@@ -34,11 +34,11 @@
                                 <thead>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Image</th>
-                                        <th>Date</th>
+                                        <th>Tên</th>
+                                        <th>Số lượng</th>
+                                        <th>Hình ảnh</th>
+                                        <th>Ngày</th>
+                                        <th>Giá</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,16 +47,16 @@
                                         <tr>
                                             <td scope="row">{{ $loop->index + 1 }}</td>
                                             <td>{{ $item->prod->name }}</td>
-                                            <td>${{ $item->price }}</td>
                                             <td>{{ $item->quantity }}</td>
                                             <td><img src="uploads/product/{{ $item->prod->image }}" width="50" alt="Image"></td>
                                             <td>{{ $item->created_at->format('d/m/Y') }}</td>
+                                            <td>${{ $item->price }}</td>
                                         </tr>
                                         <?php $total += $item->price * $item->quantity; ?>
                                     @endforeach
                                 </tbody>
                                 <tr>
-                                    <th colspan="5">Total price:</th>
+                                    <th colspan="5">Thành tiền:</th>
                                     <th>${{ number_format($total)}}</th>
                                 </tr>
                             </table>
@@ -65,7 +65,7 @@
                             <form action="" method="post">
                                @csrf
                                <div class="contact-form-wrap">
-                                    <span>Name:</span>
+                                    <span>Tên:</span>
                                     <div class="form-grp">
                                         <input name="name" type="text" placeholder="Your Name *" value="{{ $auth->name }}">
                                     </div>
@@ -81,7 +81,7 @@
                                         <div class="error-message">{{ $message }}</div>
                                     @enderror
 
-                                    <span>Phone:</span>
+                                    <span>Số điện thoại:</span>
                                     <div class="form-grp">
                                         <input name="phone" type="text" placeholder="Your Phone *" value="{{ $auth->phone }}">
                                     </div>
@@ -89,7 +89,7 @@
                                         <div class="error-message">{{ $message }}</div>
                                     @enderror
 
-                                    <span>Address:</span>
+                                    <span>Địa chỉ:</span>
                                     <div class="form-grp">
                                         <input name="address" type="text" placeholder="Your Address *" value="{{ $auth->address }}">
                                     </div>
@@ -97,7 +97,7 @@
                                         <div class="error-message">{{ $message }}</div>
                                     @enderror
 
-                                    <button type="submit">Place Order</button>
+                                    <button type="submit">Đặt hàng</button>
                                 </div>
                             </form>
                         </div>

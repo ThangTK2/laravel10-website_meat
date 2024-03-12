@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
-
+use PDF;
 class OrderController extends Controller
 {
     public function index()
@@ -26,6 +26,18 @@ class OrderController extends Controller
             return redirect()->route('order.index')->with('success', 'Cập nhật trạng thái thành công');
         }
         return redirect()->route('order.index')->with('error', 'Không thể cập nhật. Đơn hàng đã được giao');
+    }
+
+    public function print_order($id)
+    {
+        $order = Order::findOrFail($id);
+        $total = 0;
+        foreach ($order->details as $item) {
+            $total += $item->price * $item->quantity;
+        }
+        $order->total = $total;
+        $pdf = PDF::loadView('admin.order.print_order', compact('order')); // Load view để render PDF
+        return $pdf->stream('order_'.$id.'.pdf'); // Trả về file PDF
     }
 }
 

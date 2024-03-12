@@ -73,7 +73,7 @@
         </div>
         <div class="pull-left info">
           <p>{{ auth()->user()->name }}</p>
-          <a href="{{ route('admin.logout') }}"><i class="fa fa-circle text-success"></i> Logout</a>
+          <a href="{{ route('admin.logout') }}"><i class="fa fa-circle text-success"></i> Đăng xuất</a>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -85,31 +85,31 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Categories</span>
+            <i class="fa fa-table"></i> <span>Danh mục</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> List Categories</a></li>
-            <li><a href="{{ route('category.create') }}"><i class="fa fa-circle-o"></i> Add New Category</a></li>
+            <li><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a></li>
+            <li><a href="{{ route('category.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
           </ul>
         </li>
         <li class="treeview">
             <a href="#">
-              <i class="fa fa-th"></i> <span>Products</span>
+              <i class="fa fa-th"></i> <span>Sản phẩm</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{{ route('product.index') }}"><i class="fa fa-circle-o"></i> List Products</a></li>
-              <li><a href="{{ route('product.create') }}"><i class="fa fa-circle-o"></i> Add New Product</a></li>
+              <li><a href="{{ route('product.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a></li>
+              <li><a href="{{ route('product.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
             </ul>
         </li>
         <li class="treeview">
             <a href="#">
-              <i class="fa fa-shopping-cart"></i> <span>Orders</span>
+              <i class="fa fa-shopping-cart"></i> <span>Đơn hàng</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>

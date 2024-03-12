@@ -1,5 +1,5 @@
 @extends('master.admin')
-@section('title', 'Admin | Create Product')
+@section('title', 'Admin | Thêm Mới Sản Phẩm')
 @section('main')
 
 <div class="row">
@@ -7,7 +7,7 @@
         @csrf
         <div class="col-md-7">
             <div class="form-group">
-                <label for="">Name</label>
+                <label for="">Tên sản phẩm</label>
                 <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="..." aria-describedby="helpId">
             </div>
             @error('name')
@@ -15,9 +15,9 @@
             @enderror
 
             <div class="form-group">
-                <label for="">Category</label>
+                <label for="">Danh mục</label>
                 <select class="form-control" name="category_id" id="">
-                    <option value="">Choice one</option>
+                    <option value="">Chọn một</option>
                     @foreach ($categories as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
@@ -28,7 +28,7 @@
             @enderror
 
             <div class="form-group">
-                <label for="">Description</label>
+                <label for="">Mô tả</label>
                 <textarea name="description" class="form-control description" placeholder="...">{{ old('description') }}</textarea>
             </div>
             @error('description')
@@ -36,12 +36,12 @@
             @enderror
 
             <div class="form-group">
-                <label for="">Multiple images</label>
+                <label for="">Chọn nhiều ảnh</label>
                 <input type="file" name="images[]" class="form-control" multiple  onchange="showMultipleImage(this)">
 
                 <div class="row" id="show_multiple_img" style="padding-top: 12px">
                     <div class="col-md-3">
-                        <img class="thumbnail" src="" alt="Image">
+                        <img class="thumbnail" src="" alt="Hình ảnh">
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
         </div>
         <div class="col-md-5">
             <div class="form-group">
-                <label for="">Price</label>
+                <label for="">Giá</label>
                 <input type="text" name="price" class="form-control" value="{{ old('price') }}" placeholder="..." aria-describedby="helpId">
             </div>
             @error('price')
@@ -60,7 +60,7 @@
             @enderror
 
             <div class="form-group">
-                <label for="">Sale Price</label>
+                <label for="">Giá khuyến mãi</label>
                 <input type="text" name="sale_price" class="form-control" value="{{ old('sale_price') }}" placeholder="..." aria-describedby="helpId">
             </div>
             @error('sale_price')
@@ -68,12 +68,12 @@
             @enderror
 
             <div class="form-group">
-                <label for="">Image</label>
+                <label for="">Hình ảnh</label>
                 <input type="file" name="image" class="form-control" onchange="showImage(this)">
 
                 <div class="row">
                     <div class="col-md-3" style="padding-top: 12px">
-                        <img class="thumbnail" id="show_img" alt="Image" width="100%">
+                        <img class="thumbnail" id="show_img" alt="Hình ảnh" width="100%">
                     </div>
                 </div>
             </div>
@@ -82,15 +82,15 @@
             @enderror
 
             <div class="form-group">
-                <label for="">Status</label>
+                <label for="">Trạng thái</label>
                 <div class="radio">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="status" value="0"> Hidden
+                        <input class="form-check-input" type="radio" name="status" value="0"> Ẩn
                     </label>
                 </div>
                 <div class="radio">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="status" value="1"> Publish
+                        <input class="form-check-input" type="radio" name="status" value="1"> Hiện
                     </label>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                 <div class="error-message">{{ $message }}</div>
             @enderror
 
-            <button type="submit" class="btn btn-danger"><i class="fa fa-save"></i> Save</button>
+            <button type="submit" class="btn btn-danger"><i class="fa fa-save"></i> Thêm</button>
         </div>
     </form>
 </div>
@@ -135,7 +135,7 @@
                     reader.onload = function (e) {
                         _html += `
                             <div class="">
-                                <img src="${e.target.result}" alt="Image" width="50%">
+                                <img src="${e.target.result}" alt="Hình ảnh" width="50%">
                             </div>
                         `
                         $('#show_multiple_img').html(_html);

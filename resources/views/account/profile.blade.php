@@ -1,5 +1,5 @@
 @extends('master.main')
-@section('title', 'Your Profile')
+@section('title', 'Hồ Sơ Của Bạn')
 @section('main')
     <!-- main-area -->
     <main>
@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">Your Profile</h2>
+                            <h2 class="title">Hồ Sơ Của Bạn</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
@@ -32,44 +32,44 @@
                         <div class="">
                             <div class="contact-content">
                                 <div class="section-title mb-15">
-                                    <span class="sub-title">Your Profile</span>
+                                    <span class="sub-title">Hồ Sơ Của Bạn</span>
                                 </div>
                                 <form action="" method="POST">
                                     @csrf
                                     <div class="contact-form-wrap">
                                         <div class="form-grp">
-                                            <input name="name" value="{{ $auth->name }}" type="text" placeholder="Your Name *" value="{{ old('name') }}">
+                                            <input name="name" value="{{ $auth->name }}" type="text" placeholder="Tên *" value="{{ old('name') }}">
                                         </div>
                                         @error('name')
                                             <div class="error-message">{{ $message }}</div>
                                         @enderror
 
                                         <div class="form-grp">
-                                            <input name="email" value="{{ $auth->email }}" type="text" placeholder="Your Email *" value="{{ old('email') }}">
+                                            <input name="email" value="{{ $auth->email }}" type="text" placeholder="Email *" value="{{ old('email') }}">
                                         </div>
                                         @error('email')
                                             <div class="error-message">{{ $message }}</div>
                                         @enderror
 
                                         <div class="form-grp">
-                                            <input name="phone" value="{{ $auth->phone }}" type="text" placeholder="Your Phone *" value="{{ old('phone') }}">
+                                            <input name="phone" value="{{ $auth->phone }}" type="text" placeholder="Số điện thoại *" value="{{ old('phone') }}">
                                         </div>
                                         @error('phone')
                                             <div class="error-message">{{ $message }}</div>
                                         @enderror
 
                                         <div class="form-grp">
-                                            <input name="address" value="{{ $auth->address }}" type="text" placeholder="Your Address *" value="{{ old('address') }}">
+                                            <input name="address" value="{{ $auth->address }}" type="text" placeholder="Địa chỉ *" value="{{ old('address') }}">
                                         </div>
                                         @error('address')
                                             <div class="error-message">{{ $message }}</div>
                                         @enderror
 
                                         <div class="form-grp">
-                                            <select name="gender" class="form-control" id="" style="background: #f7f3ec; color: #000;; padding: 14px 20px">
+                                            <select name="Giới tính" class="form-control" id="" style="background: #f7f3ec; color: #000;; padding: 14px 20px">
                                                 {{-- <option value="">Select Gender *</option> --}}
-                                                <option value="1" {{ $auth->gender == 1 ? 'selected' : ''  }}>Male</option>
-                                                <option value="0" {{ $auth->gender == 0 ? 'selected' : ''  }}>Female</option>
+                                                <option value="1" {{ $auth->gender == 1 ? 'selected' : ''  }}>Nam</option>
+                                                <option value="0" {{ $auth->gender == 0 ? 'selected' : ''  }}>Nũ</option>
                                             </select>
                                         </div>
                                         @error('gender')
@@ -77,12 +77,12 @@
                                         @enderror
 
                                         <div class="form-grp">
-                                            <input name="password" type="password" placeholder="Your Password *" value="{{ old('password') }}">
+                                            <input name="password" type="password" placeholder="Mật khẩu *" value="{{ old('password') }}">
                                         </div>
                                         @error('password')
                                             <div class="error-message">{{ $message }}</div>
                                         @enderror
-                                        <button type="submit">Update Profile</button>
+                                        <button type="submit">CẬP NHẬT HỒ SƠ</button>
                                     </div>
                                 </form>
                                 <p class="ajax-response mb-0"></p>

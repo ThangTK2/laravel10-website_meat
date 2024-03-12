@@ -1,5 +1,5 @@
 @extends('master.main')
-@section('title', 'Your Carts')
+@section('title', 'Giỏ Hàng Của Bạn')
 @section('main')
     <!-- main-area -->
     <main>
@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">Your Carts</h2>
+                            <h2 class="title">Giỏ Hàng Của Bạn</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
@@ -31,12 +31,12 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Image</th>
-                            <th>Date</th>
-                            <th>Action</th>
+                            <th>Tên</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Hình ảnh</th>
+                            <th>Ngày</th>
+                            <th>Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,10 +63,10 @@
                 </table>
                 <br>
                 <div class="text-center">
-                    <a href="" class="btn"><i class="fa fa-arrow-left" style="padding-right: 12px"></i>Continue Shopping</a>
+                    <a href="" class="btn"><i class="fa fa-arrow-left" style="padding-right: 12px"></i>Tiếp tục mua sắm</a>
                     @if ($carts->count())
-                        <a href="{{ route('cart.clear') }}" class="btn" onclick="return confirm('Do you want to remove all product from your cart?')"><i style="padding-right: 12px" class="fa fa-trash"></i>Clear All Carts</a>
-                        <a href="{{ route('order.checkout') }}" class="btn">Place Order <i style="padding-left: 12px" class="fa fa-arrow-right"></i></a>
+                        <a href="{{ route('cart.clear') }}" class="btn" onclick="return confirm('Do you want to remove all product from your cart?')"><i style="padding-right: 12px" class="fa fa-trash"></i>Xóa tất cả</a>
+                        <a href="{{ route('order.checkout') }}" class="btn">Đặt hàng <i style="padding-left: 12px" class="fa fa-arrow-right"></i></a>
                     @endif
                 </div>
             </div>

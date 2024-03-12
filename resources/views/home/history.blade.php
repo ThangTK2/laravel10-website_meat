@@ -1,5 +1,5 @@
 @extends('master.main')
-@section('title', 'My Orders')
+@section('title', 'Đơn Hàng Của Bạn')
 @section('main')
     <!-- main-area -->
     <main>
@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">My Order</h2>
+                            <h2 class="title">Đơn Hàng Của Bạn </h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">My Order</li>
+                                    <li class="breadcrumb-item active" aria-current="page">My Orders</li>
                                 </ol>
                             </nav>
                         </div>
@@ -31,10 +31,10 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Order date</th>
-                            <th>Status</th>
-                            <th>Total price</th>
-                            <th>Action</th>
+                            <th>Ngày đặt hàng</th>
+                            <th>Trạng thái</th>
+                            <th>Tổng gía</th>
+                            <th>Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,18 +44,18 @@
                                 <td>{{ $item->created_at->format('d/m/Y') }}</td>
                                 <td>
                                     @if ($item->status == 0)
-                                        <span>You have not received your order. Please check your email for confirmation</span>
+                                        <span>Bạn chưa xác nhận đơn đặt hàng. Vui lòng kiểm tra Email để xác nhận</span>
                                     @elseif($item->status == 1)
-                                        <span>Your order has been confirmed</span>
+                                        <span>Bạn đã xác nhận đơn đặt hàng. Chúng tôi sẽ giao trong thời gian sớm nhất</span>
                                     @elseif($item->status == 2)
-                                        <span>Your order has been paid</span>
+                                        <span>Đơn hàng của bạn đang được giao</span>
                                     @else
-                                        <span>Your order has been canceled</span>
+                                        <span>Đơn hàng của bạn đã  được hủy</span>
                                     @endif
                                 </td>
                                 <td>${{ number_format($item->totalPrice) }}</td>  {{--  totalPrice ben Order.php --}}
                                 <td>
-                                    <a href="{{ route('order.detail', $item->id) }}" class="btn btn-primary">Detail</a>
+                                    <a href="{{ route('order.detail', $item->id) }}" class="btn btn-sucess">Xem chi tiết</a>
                                 </td>
                             </tr>
                         @endforeach

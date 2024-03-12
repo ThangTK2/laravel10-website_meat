@@ -4,7 +4,7 @@
       <base href="/">
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Admin | Log in</title>
+      <title>Admin | Đăng Nhập</title>
       <!-- Tell the browser to be responsive to screen width -->
       <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
       <!-- Bootstrap 3.3.7 -->
@@ -29,7 +29,7 @@
          </div>
          <!-- /.login-logo -->
          <div class="login-box-body">
-            <p class="login-box-msg">Sign in now!</p>
+            <p class="login-box-msg">Đăng nhập</p>
             <form action="" method="post">
                @csrf
                <div class="form-group has-feedback">
@@ -48,23 +48,14 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
 
-               <div class="row">
-                  <div class="col-xs-8">
-                     <div class="checkbox">
-                        <label>
-                        <input type="checkbox"> Remember Me
-                        </label>
-                     </div>
-                  </div>
+               <div class="row" style="display: flex; align-items: center; justify-content: center">
                   <!-- /.col -->
                   <div class="col-xs-4">
-                     <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                     <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>
                   </div>
                   <!-- /.col -->
                </div>
             </form>
-            <!-- /.social-auth-links -->
-            <a href="#">I forgot my password</a><br>
          </div>
          <!-- /.login-box-body -->
       </div>

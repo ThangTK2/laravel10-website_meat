@@ -1,5 +1,5 @@
 @extends('master.main')
-@section('title', 'Your Order Detail')
+@section('title', 'Chi tiết đơn hàng của bạn')
 @section('main')
     <!-- main-area -->
     <main>
@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">Your Order Detail</h2>
+                            <h2 class="title">Chi tiết đơn hàng của bạn</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
@@ -29,19 +29,19 @@
             <div class="container" style="padding: 125px 0">
                 <div class="row">
                     <div class="col-md-6">
-                        <h3>Customer Information:</h3>
+                        <h3>Thông tin khách hàng:</h3>
                         <table class="table table-striped table-inverse table-responsive table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Tên</th>
                                     <td>{{ $auth->name }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Phone</th>
+                                    <th>Số điện thoại</th>
                                     <td>{{ $auth->phone }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Address</th>
+                                    <th>Địa chỉ</th>
                                     <td>{{ $auth->address }}</td>
                                 </tr>
                                 <tr>
@@ -52,19 +52,19 @@
                         </table>
                     </div>
                     <div class="col-md-6">
-                        <h3>Delivery Information:</h3>
+                        <h3>Thông tin giao hàng:</h3>
                         <table class="table table-bordered table-striped table-inverse table-responsive">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Tên</th>
                                     <td>{{ $order->name }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Phone</th>
+                                    <th>Số điện thoại</th>
                                     <td>{{ $order->phone }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Address</th>
+                                    <th>Địa chỉ</th>
                                     <td>{{ $order->address }}</td>
                                 </tr>
                                 <tr>
@@ -78,16 +78,16 @@
 
                 <br><br>
 
-                <h3>Product Information:</h3>
+                <h3>Thông tin sản phẩm:</h3>
                 <table class="table table-striped table-inverse table-responsive table-bordered text-center">
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Sub total</th>
+                            <th>Hình ảnh</th>
+                            <th>Tên</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                            <th>Tổng giá</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -98,14 +98,14 @@
                                 <td><img src="uploads/product/{{ $item->product->image }}" width="50" alt="Image"></td>  {{-- product OrderDetail.php --}}
                                 <td>{{ $item->product->name }}</td>
                                 <td>{{ $item->quantity }}</td>
-                                <td>{{ number_format($item->price) }}</td>
-                                <td>{{ number_format($item->price * $item->quantity) }}</td>
+                                <td>${{ number_format($item->price) }}</td>
+                                <td>${{ number_format($item->price * $item->quantity) }}</td>
                             </tr>
                             <?php $total += $item->price * $item->quantity; ?>
                         @endforeach
                     </tbody>
                     <tr>
-                        <th colspan="5">Total price:</th>
+                        <th colspan="5">Thành tiền:</th>
                         <th>${{ number_format($total)}}</th>
                     </tr>
                 </table>

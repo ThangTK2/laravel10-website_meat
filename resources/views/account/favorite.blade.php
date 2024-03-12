@@ -1,5 +1,5 @@
 @extends('master.main')
-@section('title', 'Your Product Favorite')
+@section('title', 'Sản phẩm yêu thích')
 @section('main')
     <!-- main-area -->
     <main>
@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">Your product favorite</h2>
+                            <h2 class="title">Sản phẩm yêu thích</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
@@ -31,11 +31,11 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Image</th>
-                            <th>Date</th>
-                            <th>Action</th>
+                            <th>Tên</th>
+                            <th>Giá</th>
+                            <th>Hình ảnh</th>
+                            <th>Ngày thích</th>
+                            <th>Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,7 +47,7 @@
                                 <td><img src="uploads/product/{{ $item->prod->image }}" width="50" alt="Image"></td>
                                 <td>{{ $item->created_at->format('d/m/Y') }}</td>
                                 <td>
-                                    <span><a title="Unlike" onclick="return confirm('Do you want to unlike the product?')" href="{{ route('home.favorite', $item->product_id) }}"><i class="fas fa-heart"></i></a></span>
+                                    <span><a title="Unlike" onclick="return confirm('Bạn có muốn bỏ thích sản phẩm này?')" href="{{ route('home.favorite', $item->product_id) }}"><i class="fas fa-heart"></i></a></span>
                                 </td>
                             </tr>
                         @endforeach
