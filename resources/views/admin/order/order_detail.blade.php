@@ -72,6 +72,6 @@
 
     <!-- Nút in PDF -->
     @if ($order->status != 3 && $order->status != 0)
-        <a href="{{ route('order.pdf', $order->id) }}" class="btn btn-success">In PDF</a>
+        <a href="{{ route('order.pdf', $order->id) }}" class="btn btn-success"> <i style="padding-right: 4px" class="fa fa-download"></i> In PDF</a>
     @endif
 @endsection

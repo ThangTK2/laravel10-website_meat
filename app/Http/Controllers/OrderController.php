@@ -32,12 +32,12 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
         $total = 0;
-        foreach ($order->details as $item) {
+        foreach ($order->details as $item) {   //details -> Order.php
             $total += $item->price * $item->quantity;
         }
         $order->total = $total;
-        $pdf = PDF::loadView('admin.order.print_order', compact('order')); // Load view để render PDF
-        return $pdf->stream('order_'.$id.'.pdf'); // Trả về file PDF
+        $pdf = PDF::loadView('admin.order.print_order', compact('order'));
+        return $pdf->stream('Đơn hàng_'.$id.'.pdf'); // Trả về file PDF
     }
 }
 

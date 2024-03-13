@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi Tiết Đơn Hàng:</title>
+    <title>BEMEAT - Chi Tiết Đơn Hàng</title>
     <style>
         body {
             font-family: DejaVu Sans, sans-serif;
@@ -41,7 +41,8 @@
     </style>
 </head>
 <body>
-    <h1>Chi Tiết Đơn Hàng:</h1>
+    <h1 style="text-align: center;">BEMEAT - Chi Tiết Đơn Hàng</h1>
+    <h3>Chi Tiết Đơn Hàng:</h3>
     <table>
         <thead>
             <tr>
@@ -60,7 +61,7 @@
             </tr>
         </tbody>
     </table>
-    <h2>Chi Tiết Sản Phẩm: </h2>
+    <h3>Chi Tiết Sản Phẩm: </h3>
     <table>
         <thead>
             <tr>
@@ -71,7 +72,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($order->details as $item)
+            @foreach ($order->details as $item)  {{-- details -> Order.php --}}
                 <tr>
                     <td>{{ $item->product->name }}</td>
                     <td>{{ $item->quantity }}</td>
@@ -81,7 +82,7 @@
             @endforeach
         </tbody>
     </table>
-    <p>Tổng tiền: ${{ number_format($order->total) }}</p>
+    <h3>Tổng tiền: ${{ number_format($order->total) }}</h3>
 
 </body>
 </html>

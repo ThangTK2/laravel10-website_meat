@@ -1,5 +1,15 @@
 @extends('master.admin')
-@section('title', 'Admin | Đơn hàng của khách hàng')
+@foreach ($orders as $item)
+    @if ($item->status == 0)
+        @section('title', 'Admin | Đơn hàng của khách hàng' . ' - Chưa xác nhận')
+    @elseif ($item->status == 1)
+        @section('title', 'Admin | Đơn hàng của khách hàng' . ' - Đã xác nhận')
+    @elseif ($item->status == 2)
+        @section('title', 'Admin | Đơn hàng của khách hàng' . ' - Đã được giao hàng')
+    @elseif ($item->status == 3)
+        @section('title', 'Admin | Đơn hàng của khách hàng' . ' - Đã hủy hàng')
+    @endif
+@endforeach
 @section('main')
     <table class="table border table-striped table-inverse table-responsive table-bordered text-center">
         <thead>
@@ -31,7 +41,7 @@
                     </td>
                     <td>${{ number_format($item->totalPrice) }}</td>  {{--  totalPrice ben Order.php --}}
                     <td>
-                        <a href="{{ route('order.show', $item->id) }}" class="btn btn-success">Xem chi tiết</a>
+                        <a href="{{ route('order.show', $item->id) }}" class="btn btn-sm btn-success">Xem chi tiết</a>
                     </td>
                 </tr>
             @endforeach

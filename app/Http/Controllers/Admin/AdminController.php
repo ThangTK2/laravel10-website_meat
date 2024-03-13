@@ -4,13 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminLoginRequest;
+use App\Models\Category;
+use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index(){
-        return view('admin.index');
+    public function index() {
+        $totalCategories = Category::count();
+        $totalProducts = Product::count();
+        $totalOrders = Order::where('status', 2)->count();
+
+        return view('admin.index', compact('totalProducts', 'totalCategories', 'totalOrders'));
     }
 
     public function login(){
