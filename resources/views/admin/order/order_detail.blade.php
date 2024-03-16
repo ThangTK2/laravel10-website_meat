@@ -65,13 +65,13 @@
         </tbody>
         <tr>
             <th colspan="5">Thành tiền:</th>
-            <th>${{ number_format($total)}}</th>
+            <th>{{ number_format($total)}} đ</th>
         </tr>
     </table>
     <br>
 
     <!-- Nút in PDF -->
-    @if ($order->status != 3 && $order->status != 0)
+    @if ($order->status != 3 && $order->status != 0 && $order->status != 1)
         <a href="{{ route('order.pdf', $order->id) }}" class="btn btn-success"> <i style="padding-right: 4px" class="fa fa-download"></i> In PDF</a>
     @endif
 @endsection

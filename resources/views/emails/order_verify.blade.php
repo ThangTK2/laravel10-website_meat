@@ -20,16 +20,16 @@
                 <tr>
                     <td scope="row">{{ $loop->index + 1 }}</td>
                     <td>{{ $detail->product->name }}</td>
-                    <td>${{ $detail->price }}</td>
+                    <td>{{ $detail->price }} đ</td>
                     <td>{{ $detail->quantity }}</td>
-                    <td>${{ number_format($detail->price * $detail->quantity) }}</td>
+                    <td>{{ number_format($detail->price * $detail->quantity) }} đ</td>
                 </tr>
                 <?php $total += $detail->price * $detail->quantity; ?>
             @endforeach
         </tbody>
         <tr>
             <th colspan="4">Total price:</th>
-            <th>${{ number_format($total)}}</th>
+            <th>{{ number_format($total)}} đ</th>
         </tr>
     </table>
     <p><a href="{{ route('order.verify', $token) }}" style="display: inline-block; padding: 7px 25px; color: white; background: blue; text-decoration: none;">Click here get to Verify Order!!!</a></p>

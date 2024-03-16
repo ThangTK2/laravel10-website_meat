@@ -42,7 +42,7 @@
 </head>
 <body>
     <h1 style="text-align: center;">BEMEAT - Chi Tiết Đơn Hàng</h1>
-    <h3>Chi Tiết Đơn Hàng:</h3>
+    <h3>Chi Tiết Khách Hàng:</h3>
     <table>
         <thead>
             <tr>
@@ -76,13 +76,13 @@
                 <tr>
                     <td>{{ $item->product->name }}</td>
                     <td>{{ $item->quantity }}</td>
-                    <td>${{ $item->price }}</td>
-                    <td>${{ $item->price * $item->quantity }}</td>
+                    <td>{{ $item->price }} đ</td>
+                    <td>{{ $item->price * $item->quantity }} đ</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-    <h3>Tổng tiền: ${{ number_format($order->total) }}</h3>
+    <h3>Tổng tiền: {{ number_format($order->total) }} đ</h3>
 
 </body>
 </html>

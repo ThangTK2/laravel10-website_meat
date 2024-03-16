@@ -44,7 +44,7 @@
                             <tr>
                                 <td scope="row">{{ $loop->index + 1 }}</td>
                                 <td>{{ $item->prod->name }}</td>
-                                <td>${{ $item->price }}</td>
+                                <td>{{ $item->price }} đ</td>
                                 <td>
                                     <form action="{{ route('cart.update', $item->product_id) }}" method="get">
                                         <input type="number" min="1" name="quantity" value="{{ $item->quantity }}" style="width: 50px; text-align: center">

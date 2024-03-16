@@ -143,7 +143,7 @@
                     reader.onload = function (e) {
                         _html += `
                             <div class="">
-                                <img src="${e.target.result}" alt="Hình ảnh" width="50%"
+                                <img src="{e.target.result} đ" alt="Hình ảnh" width="50%"
                             </div>
                         `
                         $('#show_multiple_img').html(_html);

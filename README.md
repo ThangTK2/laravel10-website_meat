@@ -15,3 +15,10 @@ WEB:
 
 auth: cho admin
 auth('cus'): cho người dùng
+
+
+test momo:
+NGUYEN VAN A
+9704 0000 0000 0018
+03/07
+otp

@@ -53,7 +53,7 @@
                                         <span>Đơn hàng của bạn đã  được hủy</span>
                                     @endif
                                 </td>
-                                <td>${{ number_format($item->totalPrice) }}</td>  {{--  totalPrice ben Order.php --}}
+                                <td>{{ number_format($item->totalPrice) }} đ</td>  {{--  totalPrice ben Order.php --}}
                                 <td>
                                     <a href="{{ route('order.detail', $item->id) }}" class="btn btn-sucess">Xem chi tiết</a>
                                 </td>

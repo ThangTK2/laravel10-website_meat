@@ -50,14 +50,14 @@
                                             <td>{{ $item->quantity }}</td>
                                             <td><img src="uploads/product/{{ $item->prod->image }}" width="50" alt="Image"></td>
                                             <td>{{ $item->created_at->format('d/m/Y') }}</td>
-                                            <td>${{ $item->price }}</td>
+                                            <td>{{ $item->price }} đ</td>
                                         </tr>
                                         <?php $total += $item->price * $item->quantity; ?>
                                     @endforeach
                                 </tbody>
                                 <tr>
                                     <th colspan="5">Thành tiền:</th>
-                                    <th>${{ number_format($total)}}</th>
+                                    <th>{{ number_format($total)}} đ</th>
                                 </tr>
                             </table>
                         </div>
@@ -97,9 +97,20 @@
                                         <div class="error-message">{{ $message }}</div>
                                     @enderror
 
-                                    <button type="submit">Đặt hàng</button>
+                                    <button type="submit">Thanh toán khi nhận hàng</button>
                                 </div>
                             </form>
+                            <br>
+
+                            {{-- momo --}}
+                            <form action="{{ route('momo.payment') }}" method="post">
+                                @csrf
+                                <div class="contact-form-wrap">
+                                    <input type="hidden" name="total_momo" value="{{ $total }}">
+                                    <button onclick="return confirm('Bạn có muốn xác nhận thanh toán bằng momo?')" type="submit"><img style="padding-right: 10px" src="uploads/MoMo_Logo.png" alt="momo" width=30>Thanh toán bằng Momo</button>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
                 </div>

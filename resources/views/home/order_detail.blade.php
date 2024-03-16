@@ -98,15 +98,15 @@
                                 <td><img src="uploads/product/{{ $item->product->image }}" width="50" alt="Image"></td>  {{-- product OrderDetail.php --}}
                                 <td>{{ $item->product->name }}</td>
                                 <td>{{ $item->quantity }}</td>
-                                <td>${{ number_format($item->price) }}</td>
-                                <td>${{ number_format($item->price * $item->quantity) }}</td>
+                                <td>{{ number_format($item->price) }} đ</td>
+                                <td>{{ number_format($item->price * $item->quantity) }} đ</td>
                             </tr>
                             <?php $total += $item->price * $item->quantity; ?>
                         @endforeach
                     </tbody>
                     <tr>
                         <th colspan="5">Thành tiền:</th>
-                        <th>${{ number_format($total)}}</th>
+                        <th>{{ number_format($total)}} đ</th>
                     </tr>
                 </table>
             </div>

@@ -56,7 +56,7 @@
                     <div class="col-lg-6">
                         <div class="shop-details-content">
                             <h2 class="title">{{ $product->name }}</h2>
-                            <h3 class="price"> <u style="text-decoration: line-through; padding-right: 8px">${{ $product->price }}</u> / ${{ $product->sale_price }}</h3>
+                            <h3 class="price"> <u style="text-decoration: line-through; padding-right: 8px">{{ $product->price }} đ</u> / {{ $product->sale_price }} đ</h3>
                             <div class="product-count-wrap">
                                 <span class="title">Hurry Up! Sale ends in:</span>
                                 <div class="coming-time" data-countdown="2024/4/20"></div>
@@ -144,10 +144,10 @@
                                         <a href="shop.html" class="tag">organic</a>
                                         <h2 class="title"><a href="shop-details.html">{{ $item->name }}</a></h2>
                                         @if ($item->sale_price > 0)
-                                            <span><s>${{ $item->price }}</s></span>
-                                            <span class="price">${{ $item->sale_price }}</span>
+                                            <span><s>{{ $item->price }} đ</s></span>
+                                            <span class="price">{{ $item->sale_price }} đ</span>
                                         @else
-                                            <span class="price">${{ $item->price }}</span>
+                                            <span class="price">{{ $item->price }} đ</span>
                                         @endif
 
                                         <div class="favorite-action">
@@ -160,7 +160,7 @@
 
                                                 <a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a>
                                             @else
-                                                <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Please log in to add products to cart')"><i class="fa fa-shopping-cart"></i></a>
+                                                <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng')"><i class="fa fa-shopping-cart"></i></a>
                                             @endif
                                         </div>
                                         <div class="product-cart-wrap">

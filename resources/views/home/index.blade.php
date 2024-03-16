@@ -44,10 +44,10 @@
                                         <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
                                         <div style="display: flex; align-items: center;">
                                             @if ($item->sale_price > 0) {{-- nếu có khuyến mãi --}}
-                                            <div style="color: #7F6F6C; padding-right: 8px"><span><s>${{ $item->price }}</s></span></div>
-                                            <span class="price">${{ $item->sale_price }}</span>
+                                            <div style="color: #7F6F6C; padding-right: 8px"><span><s>{{ $item->price }} đ</s></span></div>
+                                            <span class="price">{{ $item->sale_price }} đ</span>
                                             @else
-                                                <span class="price">${{ $item->price }}</span>
+                                                <span class="price">{{ $item->price }} đ</span>
                                             @endif
                                         </div>
 
@@ -62,7 +62,7 @@
 
                                                 <div style="padding-left: 10px"><a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a></div>
                                             @else
-                                                <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Please log in to add products to cart')"><i class="fa fa-shopping-cart"></i></a>
+                                                <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng')"><i class="fa fa-shopping-cart"></i></a>
                                             @endif
                                         </div>
                                     </div>
@@ -107,10 +107,10 @@
                                     <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
                                     <div style="display: flex; align-items: center; justify-content: center">
                                         @if ($item->sale_price > 0)
-                                            <div style="color: #7F6F6C; padding-right: 8px"><span><s>${{ $item->price }}</s></span></div>
-                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">${{ $item->sale_price }}</span>
+                                            <div style="color: #7F6F6C; padding-right: 8px"><span><s>{{ $item->price }} đ</s></span></div>
+                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">{{ $item->sale_price }} đ</span>
                                         @else
-                                            <span class="price">${{ $item->price }}</span>
+                                            <span class="price">{{ $item->price }} đ</span>
                                         @endif
                                     </div>
 
@@ -124,7 +124,7 @@
 
                                             <div style="padding-left: 10px"><a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a></div>
                                         @else
-                                            <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Please log in to add products to cart')"><i class="fa fa-shopping-cart"></i></a>
+                                            <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng')"><i class="fa fa-shopping-cart"></i></a>
                                         @endif
                                     </div>
                                 </div>
@@ -195,16 +195,16 @@
 
                                                 <div style="padding-left: 10px"><a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a></div>
                                             @else
-                                                <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Please log in to add products to cart')"><i class="fa fa-shopping-cart"></i></a>
+                                                <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng')"><i class="fa fa-shopping-cart"></i></a>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="product-price">
                                         @if ($item->sale_price > 0)
-                                            <span><s>${{ $item->price }}</s></span>
-                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">${{ $item->sale_price }}</span>
+                                            <span><s>{{ $item->price }} đ</s></span>
+                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">{{ $item->sale_price }} đ</span>
                                         @else
-                                            <span class="price">${{ $item->price }}</span>
+                                            <span class="price">{{ $item->price }} đ</span>
                                         @endif
                                     </div>
                                 </div>
@@ -218,138 +218,6 @@
             </div>
         </section>
         <!-- product-area-end -->
-
-        <!-- team-area -->
-        {{-- <section class="team-area team-bg" data-background="uploads/bg/team_bg.jpg">
-            <div class="container custom-container-two">
-                <div class="row align-items-center">
-                    <div class="col-lg-4">
-                        <div class="team-content-wrap">
-                            <div class="section-title white-title mb-50">
-                                <span class="sub-title">Meet Our Team</span>
-                                <h2 class="title">Our CREATIVE Team</h2>
-                            </div>
-                            <p>BUY SMOKEY GRILLED meats and CHICKEN <span>GET catling</span>  FREE</p>
-                            <a href="shop.html" class="btn">Mua ngay</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="team-item-wrap">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-4 col-md-6 col-sm-8">
-                                    <div class="team-item">
-                                        <div class="team-thumb">
-                                            <img src="uploads/team/team_img01.jpg" alt="">
-                                            <a href="team-details.html" class="link-btn"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                        <div class="team-content">
-                                            <div class="line" data-background="uploads/images/line.png"></div>
-                                            <h4 class="title"><a href="team-details.html">Alaxzender pilot</a></h4>
-                                            <span>stack expert</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-8">
-                                    <div class="team-item">
-                                        <div class="team-thumb">
-                                            <img src="uploads/team/team_img02.jpg" alt="">
-                                            <a href="team-details.html" class="link-btn"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                        <div class="team-content">
-                                            <div class="line" data-background="uploads/images/line.png"></div>
-                                            <h4 class="title"><a href="team-details.html">Starlee jonson</a></h4>
-                                            <span>stack expert</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-8">
-                                    <div class="team-item">
-                                        <div class="team-thumb">
-                                            <img src="uploads/team/team_img03.jpg" alt="">
-                                            <a href="team-details.html" class="link-btn"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                        <div class="team-content">
-                                            <div class="line" data-background="uploads/images/line.png"></div>
-                                            <h4 class="title"><a href="team-details.html">Alaxzender pilot</a></h4>
-                                            <span>stack expert</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
-        <!-- team-area-end -->
-
-        <!-- faq-area -->
-        {{-- <section class="faq-area tg-motion-effects faq-bg" data-background="uploads/bg/faq_bg.jpg">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-lg-6 col-md-10">
-                        <div class="faq-img-wrap">
-                            <img src="uploads/images/faq_img01.png" alt="">
-                            <img src="uploads/images/faq_img02.png" alt="">
-                            <img src="uploads/images/faq_img03.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="faq-content">
-                            <div class="section-title mb-60">
-                                <span class="sub-title">Customer Quotes</span>
-                                <h2 class="title">Frequently <span>Asked</span> Questions.</h2>
-                            </div>
-                            <div class="faq-wrap">
-                                <div class="accordion" id="accordionExample">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                hamburg Meat is animal flesh food.
-                                            </button>
-                                        </h2>
-                                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <p>Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                Revolution allowed the of animals
-                                            </button>
-                                        </h2>
-                                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <p>Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                Meat is animal flesh food.
-                                            </button>
-                                        </h2>
-                                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <p>Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="faq-shape-wrap">
-                <img src="uploads/images/faq_shape01.png" alt="" class="tg-motion-effects3">
-                <img src="uploads/images/faq_shape02.png" alt="" class="tg-motion-effects2">
-            </div>
-        </section> --}}
-        <!-- faq-area-end -->
 
         <!-- cta-area -->
         <section class="cta-area position-relative">
@@ -371,87 +239,8 @@
         </section>
         <!-- cta-area-end -->
 
-        <!-- blog-post-area -->
-        {{-- <section class="blog-post-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title text-center mb-70">
-                            <span class="sub-title">Latest News</span>
-                            <h2 class="title">Latest News Update</h2>
-                            <div class="title-shape" data-background="uploads/images/title_shape.png"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="blog-post-item">
-                            <div class="blog-post-thumb">
-                                <a href="blog-details.html"><img src="uploads/blog/blog_post01.jpg" alt=""></a>
-                            </div>
-                            <div class="blog-post-content">
-                                <div class="blog-meta">
-                                    <ul class="list-wrap">
-                                        <li><a href="blog.html"><i class="fas fa-user"></i>Hamolin Pilot</a></li>
-                                        <li><i class="fas fa-comments"></i>03</li>
-                                    </ul>
-                                </div>
-                                <h4 class="title"><a href="blog-details.html">Hamburg Meat is Animal Flesh Food</a></h4>
-                                <p>Meat provide well shapd fresh and organic meat well animals is Humans.</p>
-                                <div class="blog-post-bottom">
-                                    <a href="blog-details.html" class="link-btn">Read More</a>
-                                    <a href="blog-details.html" class="link-arrow"><i class="fas fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="blog-post-item">
-                            <div class="blog-post-thumb">
-                                <a href="blog-details.html"><img src="uploads/blog/blog_post02.jpg" alt=""></a>
-                            </div>
-                            <div class="blog-post-content">
-                                <div class="blog-meta">
-                                    <ul class="list-wrap">
-                                        <li><a href="blog.html"><i class="fas fa-user"></i>Hamolin Pilot</a></li>
-                                        <li><i class="fas fa-comments"></i>03</li>
-                                    </ul>
-                                </div>
-                                <h4 class="title"><a href="blog-details.html">Good Source of Iron And Flesh Food</a></h4>
-                                <p>Meat provide well shapd fresh and organic meat well animals is Humans.</p>
-                                <div class="blog-post-bottom">
-                                    <a href="blog-details.html" class="link-btn">Read More</a>
-                                    <a href="blog-details.html" class="link-arrow"><i class="fas fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="blog-post-item">
-                            <div class="blog-post-thumb">
-                                <a href="blog-details.html"><img src="uploads/blog/blog_post03.jpg" alt=""></a>
-                            </div>
-                            <div class="blog-post-content">
-                                <div class="blog-meta">
-                                    <ul class="list-wrap">
-                                        <li><a href="blog.html"><i class="fas fa-user"></i>Hamolin Pilot</a></li>
-                                        <li><i class="fas fa-comments"></i>03</li>
-                                    </ul>
-                                </div>
-                                <h4 class="title"><a href="blog-details.html">Chicken Sausage For Sale Humanely Raised</a></h4>
-                                <p>Meat provide well shapd fresh and organic meat well animals is Humans.</p>
-                                <div class="blog-post-bottom">
-                                    <a href="blog-details.html" class="link-btn">Read More</a>
-                                    <a href="blog-details.html" class="link-arrow"><i class="fas fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
-        <!-- blog-post-area-end -->
-
     </main>
     <!-- main-area-end -->
+
+
 @endsection

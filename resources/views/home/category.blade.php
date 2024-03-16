@@ -63,10 +63,10 @@
                                                     <h2 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h2>
                                                     <div>
                                                         @if ($item->sale_price > 0)
-                                                            <span style="padding-right: 8px"><s>${{ $item->price }}</s></span>
-                                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">${{ $item->sale_price }}</span>
+                                                            <span style="padding-right: 8px"><s>{{ $item->price }} đ</s></span>
+                                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">{{ $item->sale_price }} đ</span>
                                                         @else
-                                                            <span class="price">${{ $item->price }}</span>
+                                                            <span class="price">{{ $item->price }} đ</span>
                                                         @endif
                                                     </div>
 
@@ -80,7 +80,7 @@
 
                                                             <div style="padding-left: 10px"><a title="Add to cart" href="{{ route('cart.add', $item->id) }}"><i class="fa fa-shopping-cart"></i></a> </div>
                                                         @else
-                                                            <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Please log in to add products to cart')"><i class="fa fa-shopping-cart"></i></a>
+                                                            <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng')"><i class="fa fa-shopping-cart"></i></a>
                                                         @endif
                                                     </div>
                                                     <div class="product-cart-wrap">
@@ -143,10 +143,10 @@
                                                 <div class="lp-content">
                                                     <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
                                                     @if ($item->sale_price > 0)
-                                                        <span><s>${{ $item->price }}</s></span>
-                                                        <span class="price">${{ $item->sale_price }}</span>
+                                                        <span><s>{{ $item->price }} đ</s></span>
+                                                        <span class="price">{{ $item->sale_price }} đ</span>
                                                     @else
-                                                        <span class="price">${{ $item->price }}</span>
+                                                        <span class="price">{{ $item->price }} đ</span>
                                                     @endif
                                                 </div>
                                             </div>

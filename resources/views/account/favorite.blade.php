@@ -43,7 +43,7 @@
                             <tr>
                                 <td scope="row">{{ $loop->index + 1 }}</td>
                                 <td>{{ $item->prod->name }}</td>
-                                <td><u style="text-decoration: line-through; padding-right: 6px">${{ $item->prod->price }}</u>/ ${{ $item->prod->sale_price }}</td>
+                                <td><u style="text-decoration: line-through; padding-right: 6px">{{ $item->prod->price }} đ</u>/ {{ $item->prod->sale_price }} đ</td>
                                 <td><img src="uploads/product/{{ $item->prod->image }}" width="50" alt="Image"></td>
                                 <td>{{ $item->created_at->format('d/m/Y') }}</td>
                                 <td>

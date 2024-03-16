@@ -39,5 +39,6 @@ class OrderController extends Controller
         $pdf = PDF::loadView('admin.order.print_order', compact('order'));
         return $pdf->stream('Đơn hàng_'.$id.'.pdf'); // Trả về file PDF
     }
+
 }
 

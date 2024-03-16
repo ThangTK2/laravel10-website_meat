@@ -98,3 +98,5 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
     Route::get('/order/pdf/{id}', [OrderController::class, 'print_order'])->name('order.pdf');
 });
 
+// Thanh toán
+Route::post('/momo_payment', [CheckoutController::class, 'momo_payment'])->name('momo.payment');
