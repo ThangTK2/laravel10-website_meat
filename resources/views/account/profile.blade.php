@@ -66,15 +66,15 @@
                                         @enderror
 
                                         <div class="form-grp">
-                                            <select name="Giới tính" class="form-control" id="" style="background: #f7f3ec; color: #000;; padding: 14px 20px">
-                                                {{-- <option value="">Select Gender *</option> --}}
-                                                <option value="1" {{ $auth->gender == 1 ? 'selected' : ''  }}>Nam</option>
-                                                <option value="0" {{ $auth->gender == 0 ? 'selected' : ''  }}>Nũ</option>
+                                            <select name="gender" class="form-control" id="gender" style="background: #f7f3ec; color: #000; padding: 14px 20px">
+                                                <option value="1" {{ $auth->gender == 1 ? 'selected' : '' }}>Nam</option>
+                                                <option value="0" {{ $auth->gender == 0 ? 'selected' : '' }}>Nữ</option>
                                             </select>
                                         </div>
                                         @error('gender')
                                             <div class="error-message">{{ $message }}</div>
                                         @enderror
+
 
                                         <div class="form-grp">
                                             <input name="password" type="password" placeholder="Mật khẩu *" value="{{ old('password') }}">

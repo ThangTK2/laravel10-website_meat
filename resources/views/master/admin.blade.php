@@ -109,6 +109,17 @@
         </li>
         <li class="treeview">
             <a href="#">
+                <i class="fa fa-users"></i> <span>Người dùng</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+            <ul class="treeview-menu">
+                <li><a href="{{ route('customers.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
               <i class="fa fa-shopping-cart"></i> <span>Đơn hàng</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -121,7 +132,6 @@
               <li><a href="{{ route('order.index') }}?status=3"><i class="fa fa-circle-o"></i> Đã hủy</a></li>
             </ul>
         </li>
-
       </ul>
     </section>
     <!-- /.sidebar -->

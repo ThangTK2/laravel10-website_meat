@@ -56,13 +56,13 @@
                     <div class="col-lg-6">
                         <div class="shop-details-content">
                             <h2 class="title">{{ $product->name }}</h2>
-                            <h3 class="price"> <u style="text-decoration: line-through; padding-right: 8px">{{ $product->price }} đ</u> / {{ $product->sale_price }} đ</h3>
+                            <h3 class="price"> <u style="text-decoration: line-through; padding-right: 8px">{{ number_format($product->price) }} đ</u> / {{ number_format($product->sale_price) }} đ</h3>
                             <div class="product-count-wrap">
                                 <span class="title">Hurry Up! Sale ends in:</span>
                                 <div class="coming-time" data-countdown="2024/4/20"></div>
                             </div>
                             <p>Thịt cung cấp thịt tươi có hình dáng đẹp và thịt hữu cơ là động vật tốt.</p>
-                            <div class="shop-details-qty">
+                            {{-- <div class="shop-details-qty">
                                 <span class="title">Quantity :</span>
                                 <div class="shop-details-qty-inner">
                                     <form action="#">
@@ -72,10 +72,14 @@
                                     </form>
                                     <button class="purchase-btn">Mua</button>
                                 </div>
-                            </div>
-                            <a href="{{ route('cart.index') }}" class="buy-btn">MUA ngay</a>
+                            </div> --}}
+                            @if (auth('cus')->check())
+                                <a href="{{ route('cart.add', $product->id) }}" class="buy-btn">MUA ngay</a>
+                            @else
+                                <a class="buy-btn title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng')">MUA ngay</a>
+                            @endif
                             <div class="payment-method-wrap">
-                                <span class="title">GUARANTEED SAFE CHECKOUT:</span>
+                                <span class="title">ĐẢM BẢO THANH TOÁN AN TOÀN:</span>
                                 <img src="uploads/product/payment_method.png" alt="Image">
                             </div>
                         </div>
@@ -125,8 +129,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title text-center mb-50">
-                            <span class="sub-title">Organic Shop</span>
-                            <h2 class="title">Related Products</h2>
+                            <span class="sub-title">Sản phẩm nổi bật</span>
                             <div class="title-shape" data-background="uploads/images/title_shape.png"></div>
                         </div>
                     </div>
@@ -141,13 +144,12 @@
                                         <span class="batch">New<i class="fas fa-star"></i></span>
                                     </div>
                                     <div class="product-content-three">
-                                        <a href="shop.html" class="tag">organic</a>
                                         <h2 class="title"><a href="shop-details.html">{{ $item->name }}</a></h2>
                                         @if ($item->sale_price > 0)
-                                            <span><s>{{ $item->price }} đ</s></span>
-                                            <span class="price">{{ $item->sale_price }} đ</span>
+                                            <span><s>{{ number_format($item->price) }} đ</s></span>
+                                            <span class="price">{{ number_format($item->sale_price) }} đ</span>
                                         @else
-                                            <span class="price">{{ $item->price }} đ</span>
+                                            <span class="price">{{ number_format($item->price) }} đ</span>
                                         @endif
 
                                         <div class="favorite-action">

@@ -16,8 +16,9 @@ class AdminController extends Controller
         $totalCategories = Category::count();
         $totalProducts = Product::count();
         $totalOrders = Order::where('status', 2)->count();
+        $totalUsers = User::count();
 
-        return view('admin.index', compact('totalProducts', 'totalCategories', 'totalOrders'));
+        return view('admin.index', compact('totalProducts', 'totalCategories', 'totalOrders', 'totalUsers'));
     }
 
     public function login(){

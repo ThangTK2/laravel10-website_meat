@@ -44,10 +44,10 @@
                                         <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
                                         <div style="display: flex; align-items: center;">
                                             @if ($item->sale_price > 0) {{-- nếu có khuyến mãi --}}
-                                            <div style="color: #7F6F6C; padding-right: 8px"><span><s>{{ $item->price }} đ</s></span></div>
-                                            <span class="price">{{ $item->sale_price }} đ</span>
+                                            <div style="color: #7F6F6C; padding-right: 8px"><span><s>{{ number_format($item->price) }} đ</s></span></div>
+                                            <span class="price">{{ number_format($item->sale_price) }} đ</span>
                                             @else
-                                                <span class="price">{{ $item->price }} đ</span>
+                                                <span class="price">{{ number_format($item->price) }} đ</span>
                                             @endif
                                         </div>
 
@@ -107,10 +107,10 @@
                                     <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
                                     <div style="display: flex; align-items: center; justify-content: center">
                                         @if ($item->sale_price > 0)
-                                            <div style="color: #7F6F6C; padding-right: 8px"><span><s>{{ $item->price }} đ</s></span></div>
-                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">{{ $item->sale_price }} đ</span>
+                                            <div style="color: #7F6F6C; padding-right: 8px"><span><s>{{ number_format($item->price) }} đ</s></span></div>
+                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">{{ number_format($item->sale_price) }} đ</span>
                                         @else
-                                            <span class="price">{{ $item->price }} đ</span>
+                                            <span class="price">{{ number_format($item->price) }} đ</span>
                                         @endif
                                     </div>
 
@@ -201,10 +201,10 @@
                                     </div>
                                     <div class="product-price">
                                         @if ($item->sale_price > 0)
-                                            <span><s>{{ $item->price }} đ</s></span>
-                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">{{ $item->sale_price }} đ</span>
+                                            <span><s>{{ number_format($item->price) }} đ</s></span>
+                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">{{ number_format($item->sale_price) }}đ</span>
                                         @else
-                                            <span class="price">{{ $item->price }} đ</span>
+                                            <span class="price">{{ number_format($item->price) }} đ</span>
                                         @endif
                                     </div>
                                 </div>
@@ -213,7 +213,7 @@
                     @endforeach
                 </div>
                 <div class="shop-now-btn text-center mt-40">
-                    <a href="shop.html" class="btn">Mua ngay</a>
+                    <a href="" class="btn">Mua ngay</a>
                 </div>
             </div>
         </section>

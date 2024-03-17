@@ -76,8 +76,8 @@
                 <tr>
                     <td>{{ $item->product->name }}</td>
                     <td>{{ $item->quantity }}</td>
-                    <td>{{ $item->price }} đ</td>
-                    <td>{{ $item->price * $item->quantity }} đ</td>
+                    <td>{{ number_format($item->price) }} đ</td>
+                    <td>{{ number_format($item->price * $item->quantity) }} đ</td>
                 </tr>
             @endforeach
         </tbody>

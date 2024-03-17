@@ -29,26 +29,6 @@
                 <div class="shop-inner-wrap">
                     <div class="row">
                         <div class="col-xl-9 col-lg-8">
-                            {{-- <div class="shop-top-wrap">
-                                <div class="row align-items-center">
-                                    <div class="col-md-6">
-                                        <div class="shop-showing-result">
-                                            <p>Showing 1–09 of 20 results</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="shop-ordering">
-                                            <select name="orderby" class="orderby">
-                                                <option value="Default sorting">Sort by Top Rating</option>
-                                                <option value="Sort by popularity">Sort by popularity</option>
-                                                <option value="Sort by average rating">Sort by average rating</option>
-                                                <option value="Sort by latest">Sort by latest</option>
-                                                <option value="Sort by latest">Sort by latest</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
                             <div class="shop-item-wrap">
                                 <div class="row">
                                     @foreach ($cat->products as $item)
@@ -63,10 +43,10 @@
                                                     <h2 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h2>
                                                     <div>
                                                         @if ($item->sale_price > 0)
-                                                            <span style="padding-right: 8px"><s>{{ $item->price }} đ</s></span>
-                                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">{{ $item->sale_price }} đ</span>
+                                                            <span style="padding-right: 8px"><s>{{ number_format($item->price) }} đ</s></span>
+                                                            <span style="color:#df2614; font-size:24px; font-weight:700; grid-area:auto; line-height:48px" class="price">{{ number_format($item->sale_price) }} đ</span>
                                                         @else
-                                                            <span class="price">{{ $item->price }} đ</span>
+                                                            <span class="price">{{ number_format($item->price) }} đ</span>
                                                         @endif
                                                     </div>
 
@@ -82,13 +62,6 @@
                                                         @else
                                                             <a title="Add to cart" href="{{route('account.login')}}" onclick="return confirm('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng')"><i class="fa fa-shopping-cart"></i></a>
                                                         @endif
-                                                    </div>
-                                                    <div class="product-cart-wrap">
-                                                        <form action="#">
-                                                            <div class="cart-plus-minus">
-                                                                <input type="text" value="1">
-                                                            </div>
-                                                        </form>
                                                     </div>
                                                 </div>
                                                 <div class="product-shape-two">
@@ -143,10 +116,10 @@
                                                 <div class="lp-content">
                                                     <h4 class="title"><a href="{{ route('home.product', $item->id) }}">{{ $item->name }}</a></h4>
                                                     @if ($item->sale_price > 0)
-                                                        <span><s>{{ $item->price }} đ</s></span>
-                                                        <span class="price">{{ $item->sale_price }} đ</span>
+                                                        <span><s>{{ number_format($item->price) }} đ</s></span>
+                                                        <span class="price">{{ number_format($item->sale_price) }} đ</span>
                                                     @else
-                                                        <span class="price">{{ $item->price }} đ</span>
+                                                        <span class="price">{{ number_format($item->price) }} đ</span>
                                                     @endif
                                                 </div>
                                             </div>
@@ -163,5 +136,6 @@
 
     </main>
     <!-- main-area-end -->
-
+    {{-- paginate --}}
+    {{ $products->appends(request()->all())->links() }}
 @endsection

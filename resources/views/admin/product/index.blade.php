@@ -2,13 +2,12 @@
 @section('title', 'Admin | Danh Sách Sản Phẩm')
 @section('main')
 
-<form class="form-inline" method="POST">
-    @csrf
+<form action="" class="form-inline">
     <div class="form-group">
-        <input type="text" name="" id="" class="form-control" placeholder="Tìm kiếm..." >
+        <input type="text" name="keyword" id="" class="form-control" placeholder="Tìm kiếm..." >
         <button type="submit" id="helpId" class="btn btn-danger"><i class="fa fa-search"></i></button>
-        <a href="{{ route('product.create') }}" class="btn btn-success float-right"><i class="fa fa-plus"></i></a>
     </div>
+    <a href="{{ route('product.create') }}" class="btn btn-success float-right"><i class="fa fa-plus"></i></a>
 </form>
 
 <br>
@@ -49,5 +48,5 @@
         @endforeach
     </tbody>
 </table>
-
+{{ $products->appends(request()->all())->links() }}  {{-- khi tiềm kiếm nó vẫn hiện --}}
 @endsection

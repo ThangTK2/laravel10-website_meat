@@ -85,29 +85,29 @@ class CheckoutController extends Controller
 
     //momo
     public function execPostRequest($url, $data)
-{
-    // Khởi tạo một yêu cầu CURL mới
-    $ch = curl_init($url);
+    {
+        // Khởi tạo một yêu cầu CURL mới
+        $ch = curl_init($url);
 
-    // Cài đặt các tùy chọn yêu cầu
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        'Content-Type: application/json',
-        'Content-Length: ' . strlen($data))
-    );
-    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        // Cài đặt các tùy chọn yêu cầu
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($data))
+        );
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 
-    // Thực hiện yêu cầu POST
-    $result = curl_exec($ch);
+        // Thực hiện yêu cầu POST
+        $result = curl_exec($ch);
 
-    // Đóng kết nối CURL
-    curl_close($ch);
+        // Đóng kết nối CURL
+        curl_close($ch);
 
-    return $result;
-}
+        return $result;
+    }
 
     public function momo_payment(Request $request)
     {
@@ -169,25 +169,21 @@ class CheckoutController extends Controller
         $auth = auth('cus')->user();
 
         if (isset($jsonResult['payUrl'])) {
-            // Tạo đơn hàng mới và cập nhật trạng thái của đơn hàng thành "đã giao hàng"
             $order = new Order();
-            $order->name = $auth->name;
+            $order->name = $auth->name;  //auth: người dùng đăng nhập
             $order->email = $auth->email;
             $order->phone = $auth->phone;
             $order->address = $auth->address;
-            $order->customer_id = $auth->id; // Gán ID của khách hàng đăng nhập
-            $order->status = 2; // Trạng thái đã giao hàng
+            $order->customer_id = $auth->id;
+            $order->status = 2;
             $order->save();
 
             $auth->carts()->delete();
 
-            // Chuyển hướng người dùng đến trang thanh toán MoMo
             return redirect()->to($jsonResult['payUrl'])->with('success', 'Mua hàng thành công!');
         } else {
             return redirect()->back()->with('error', 'Không thể tạo đơn hàng vì số tiền quá thấp, vui lòng thử lại sau.');
         }
-
-
     }
 
 }
